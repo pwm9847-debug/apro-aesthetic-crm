@@ -8,53 +8,64 @@
 <body>
 <x-dc>
 <helmet>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@2.0/nanumsquare.css">
 <style>
 body{margin:0}
 a{color:inherit;text-decoration:none}
-.app{--ink:#0E1A33;--navy:#16264A;--navy2:#2A4378;--mist:#DCE3F0;--line:#E2E6EF;--card:#F8F9FC;--bg:#E9ECF2;--muted:#5C6683;--coral:#B8452F;--coral2:#D4573E;--coraltint:#F7E4DE;--blue:#2F5FD0;background:var(--bg);color:var(--ink);font-family:'Plus Jakarta Sans','Noto Sans KR',sans-serif;box-sizing:border-box;min-height:100%}
+.app{--ink:#0E1A33;--navy:#16264A;--navy2:#2A4378;--mist:#DCE3F0;--line:#E2E6EF;--card:#FFFFFF;--bg:#F5F5F2;--muted:#5C6683;--coral:#B8452F;--coral2:#D4573E;--coraltint:#FBF1EE;--blue:#2F5FD0;background:var(--bg);color:var(--ink);font-family:'NanumSquare','Nanum Square','Noto Sans KR',sans-serif;box-sizing:border-box;min-height:100%}
 .app *{box-sizing:border-box}
-.card{background:var(--card);border-radius:28px;padding:24px;box-shadow:0 10px 30px -20px rgba(22,38,74,.35)}
-.h2{font-size:20px;font-weight:600;margin:0;letter-spacing:-.01em}
-.sub{font-size:13px;color:var(--muted)}
-.chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:5px 10px;border-radius:999px;white-space:nowrap}
+.card{background:var(--card);border-radius:2px;padding:24px;}
+.h2{font-size:18px;font-weight:700;margin:0;letter-spacing:-.07em}
+.sub{font-size:11px;color:var(--muted)}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;padding:5px 10px;border-radius:2px;white-space:nowrap}
 .chip.blue{background:#DDE6FA;color:#1F46A8}
 .chip.coral{background:var(--coraltint);color:var(--coral)}
 .chip.mist{background:var(--mist);color:#2A3A63}
 .chip.solid{background:var(--coral);color:#fff}
-.bar{height:6px;border-radius:99px;background:#DEE3EE;overflow:hidden}
-.bar>i{display:block;height:100%;border-radius:99px;background:var(--navy)}
+.bar{height:6px;border-radius:2px;background:#DEE3EE;overflow:hidden}
+.bar>i{display:block;height:100%;border-radius:2px;background:var(--navy)}
 .bar.risk>i{background:var(--coral2)}
-.hand{font-family:'Nanum Pen Script',cursive}
-.nav{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:16px;color:var(--muted);font-size:14px;font-weight:500}
+.hand{font-family:inherit;font-size:10px!important;color:#7A8299!important;transform:none!important;line-height:1.5!important;font-weight:400!important}
+.nav{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:2px;color:var(--muted);font-size:12px;font-weight:400}
 .nav:hover{background:#E8ECF5}
 .nav.on{background:var(--navy);color:#fff}
 .ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--blue);display:inline-block}
 .trow{display:flex;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
 .trow:last-child{border-bottom:0}
-</style>
+.app,.sv{letter-spacing:-.07em}
+.app button,.sv button{letter-spacing:-.07em;font-family:inherit}
+.app .card,.sv .card{border:1px solid #E6E6E0}
+.app .chip{padding:3px 8px;font-weight:400;border:1px solid transparent;background:transparent;border-radius:2px}
+.app .chip.blue{background:#EEF1F7;color:#1E3A6E}
+.app .chip.coral{background:transparent;border-color:#E4B8AD;color:#B8452F}
+.app .chip.mist{background:#F0F0EC;color:#3A4560}
+.app .chip.solid{background:#B8452F;color:#fff;border-color:#B8452F}
+.app .chip.dark{background:#0E1A33;color:#fff}
+.app .bar{height:3px;border-radius:0}
+.app .bar>i{border-radius:0}
+.app h1{font-weight:300}
+.sv .opt{border-radius:2px}</style>
 </helmet>
 <div class="app" style="display:flex;flex-wrap:wrap;gap:24px;padding:24px;align-items:flex-start">
 
   <aside class="card" style="flex:0 0 232px;display:flex;flex-direction:column;gap:6px;padding:20px 16px;min-height:900px;justify-content:space-between">
     <div style="display:flex;flex-direction:column;gap:6px">
       <div style="display:flex;align-items:center;gap:10px;padding:6px 12px 22px">
-        <div style="width:34px;height:34px;border-radius:12px;background:var(--navy);display:flex;align-items:center;justify-content:center">
+        <div style="width:34px;height:34px;border-radius:2px;background:var(--navy);display:flex;align-items:center;justify-content:center">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 10c2 6 14 6 16 0"/><path d="M8 13v2M12 14v2M16 13v2"/></svg>
         </div>
-        <div style="display:flex;flex-direction:column;line-height:1.1"><span style="font-weight:800;letter-spacing:.16em;font-size:13px">APRO</span><span class="sub" style="font-size:11px">Aesthetic CRM</span></div>
+        <div style="display:flex;flex-direction:column;line-height:1.1"><span style="font-weight:700;letter-spacing:-.07em;font-size:11px">APRO</span><span class="sub" style="font-size:10px">Aesthetic CRM</span></div>
       </div>
       <sc-for list="{{nav}}" as="n" hint-placeholder-count="6">
         <a class="{{n.cls}}" href="{{n.href}}"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="{{n.d}}"/></svg><span>{{n.label}}</span></a>
       </sc-for>
     </div>
     <div style="display:flex;flex-direction:column;gap:14px">
-      <div class="hand" style="font-size:26px;line-height:1;color:var(--navy2);transform:rotate(-4deg);padding:0 12px">어제보다<br>한 걸음 더</div>
-      <div style="display:flex;align-items:center;gap:12px;background:#fff;border-radius:18px;padding:10px 12px">
-        <div style="width:38px;height:38px;border-radius:50%;background:var(--navy2);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px">김</div>
-        <div style="display:flex;flex-direction:column;line-height:1.25"><span style="font-size:14px;font-weight:600">김지윤</span><span class="sub" style="font-size:12px">상담실장</span></div>
+      <div class="hand" style="font-size:23px;line-height:1;color:var(--navy2);transform:rotate(-4deg);padding:0 12px">어제보다<br>한 걸음 더</div>
+      <div style="display:flex;align-items:center;gap:12px;background:#fff;border-radius:2px;padding:10px 12px">
+        <div style="width:38px;height:38px;border-radius:50%;background:var(--navy2);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px">김</div>
+        <div style="display:flex;flex-direction:column;line-height:1.25"><span style="font-size:12px;font-weight:700">김지윤</span><span class="sub" style="font-size:11px">상담실장</span></div>
       </div>
     </div>
   </aside>
@@ -63,57 +74,52 @@ a{color:inherit;text-decoration:none}
 
     <header style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-end;padding:8px 4px 0">
       <div>
-        <div class="hand" style="font-size:28px;color:var(--navy2);transform:rotate(-2deg);display:inline-block">새는 곳을 먼저 보세요</div>
-        <h1 style="margin:4px 0 0;font-size:44px;font-weight:800;letter-spacing:-.02em;line-height:1.1">이탈 분석</h1>
-        <div class="sub" style="margin-top:8px;font-size:14px">견적 이후 결정 없이 멈춘 환자를 언제, 왜, 누가 놓쳤는지 한 화면에서 봅니다.</div>
+        <div class="hand" style="font-size:25px;color:var(--navy2);transform:rotate(-2deg);display:inline-block">새는 곳을 먼저 보세요</div>
+        <h1 style="margin:4px 0 0;font-size:39px;font-weight:300;letter-spacing:-.07em;line-height:1.1">이탈 분석</h1>
+        <div class="sub" style="margin-top:8px;font-size:12px">견적 이후 결정 없이 멈춘 환자를 언제, 왜, 누가 놓쳤는지 한 화면에서 봅니다.</div>
       </div>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <span class="chip mist" style="padding:9px 16px;font-size:13px">최근 60일</span>
-        <span class="chip mist" style="padding:9px 16px;font-size:13px">전체 시술</span>
-        <span class="chip mist" style="padding:9px 16px;font-size:13px">전체 채널</span>
+        <span class="chip mist" style="padding:9px 16px;font-size:11px">최근 60일</span>
+        <span class="chip mist" style="padding:9px 16px;font-size:11px">전체 시술</span>
+        <span class="chip mist" style="padding:9px 16px;font-size:11px">전체 채널</span>
       </div>
     </header>
 
     <!-- Hero -->
     <section style="display:flex;flex-wrap:wrap;gap:24px">
-      <div style="flex:1.3 1 460px;position:relative;overflow:hidden;border-radius:28px;background:linear-gradient(160deg,#243B6B 0%,#0E1A33 72%);color:#fff;padding:30px;min-height:260px;display:flex;flex-direction:column;justify-content:space-between">
-        <svg style="position:absolute;left:0;top:0;width:100%;height:100%" viewBox="0 0 560 260" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0 160 C90 120 160 95 240 128 S390 85 470 108 S540 125 560 116 V260 H0Z" fill="#fff" fill-opacity=".05"/>
-          <path d="M0 200 C100 165 180 152 265 180 S420 142 560 172 V260 H0Z" fill="#fff" fill-opacity=".07"/>
-          <path d="M0 238 C130 214 230 226 340 216 S500 216 560 222 V260 H0Z" fill="#fff" fill-opacity=".1"/>
-        </svg>
+      <div style="flex:1.3 1 460px;position:relative;overflow:hidden;border-radius:2px;background:#0E1A33;color:#fff;padding:30px;min-height:260px;display:flex;flex-direction:column;justify-content:space-between">
         <div style="position:relative;display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
           <div>
-            <div style="font-size:14px;opacity:.8">견적 이후 이탈</div>
-            <div style="display:flex;align-items:baseline;gap:8px;margin-top:6px"><span style="font-size:72px;font-weight:800;letter-spacing:-.03em;line-height:1">24</span><span style="font-size:26px;opacity:.7;font-weight:600">명 / 견적 52명</span></div>
+            <div style="font-size:12px;opacity:.8">견적 이후 이탈</div>
+            <div style="display:flex;align-items:baseline;gap:8px;margin-top:6px"><span style="font-size:63px;font-weight:300;letter-spacing:-.07em;line-height:1">24</span><span style="font-size:23px;opacity:.7;font-weight:300">명 / 견적 52명</span></div>
           </div>
           <span class="chip solid" style="background:#fff;color:var(--coral)">이탈률 46%</span>
         </div>
         <div style="position:relative;display:flex;align-items:center;gap:14px;flex-wrap:wrap">
-          <div style="flex:1 1 200px"><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px;opacity:.9"><span>결정 28</span><span>이탈 24</span></div>
-            <div style="display:flex;height:8px;border-radius:99px;overflow:hidden;background:rgba(255,255,255,.2)"><div style="width:54%;background:#fff"></div><div style="width:46%;background:#E9795F"></div></div></div>
+          <div style="flex:1 1 200px"><div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:8px;opacity:.9"><span>결정 28</span><span>이탈 24</span></div>
+            <div style="display:flex;height:8px;border-radius:2px;overflow:hidden;background:rgba(255,255,255,.2)"><div style="width:54%;background:#fff"></div><div style="width:46%;background:#E9795F"></div></div></div>
         </div>
       </div>
 
       <div style="flex:1 1 400px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px">
-        <div class="card" style="padding:20px 22px;background:var(--coraltint);border:1.5px solid #E3A596">
-          <div style="font-size:13px;font-weight:600;color:var(--coral)">이탈 집중 구간</div>
-          <div style="font-size:34px;font-weight:800;margin-top:6px;letter-spacing:-.02em;color:var(--coral)">D+7 ~ 14</div>
+        <div class="card" style="padding:20px 22px;background:var(--coraltint);border:1px solid #E4B8AD">
+          <div style="font-size:11px;font-weight:700;color:var(--coral)">이탈 집중 구간</div>
+          <div style="font-size:30px;font-weight:300;margin-top:6px;letter-spacing:-.07em;color:var(--coral)">D+7 ~ 14</div>
           <span class="chip solid" style="margin-top:8px">이탈의 54%</span>
         </div>
         <div class="card" style="padding:20px 22px">
           <div class="sub">평균 이탈 시점</div>
-          <div style="font-size:34px;font-weight:800;margin-top:6px;letter-spacing:-.02em">D+11</div>
+          <div style="font-size:30px;font-weight:300;margin-top:6px;letter-spacing:-.07em">D+11</div>
           <span class="chip mist" style="margin-top:8px">상담일 기준</span>
         </div>
         <div class="card" style="padding:20px 22px">
           <div class="sub">되살릴 수 있는 환자</div>
-          <div style="font-size:34px;font-weight:800;margin-top:6px;letter-spacing:-.02em">9<span style="font-size:16px;color:var(--muted);font-weight:600"> 명</span></div>
+          <div style="font-size:30px;font-weight:300;margin-top:6px;letter-spacing:-.07em">9<span style="font-size:14px;color:var(--muted);font-weight:700"> 명</span></div>
           <span class="chip blue" style="margin-top:8px">지금 연락 가능</span>
         </div>
         <div class="card" style="padding:20px 22px">
           <div class="sub">1위 이탈 사유</div>
-          <div style="font-size:26px;font-weight:800;margin-top:10px;letter-spacing:-.02em">타병원 비교</div>
+          <div style="font-size:23px;font-weight:300;margin-top:10px;letter-spacing:-.07em">타병원 비교</div>
           <span class="chip coral" style="margin-top:10px">9명 · 38%</span>
         </div>
       </div>
@@ -131,7 +137,7 @@ a{color:inherit;text-decoration:none}
           <g stroke="#DCE1EC" stroke-width="1">
             <line x1="40" y1="20" x2="640" y2="20"/><line x1="40" y1="70" x2="640" y2="70"/><line x1="40" y1="120" x2="640" y2="120"/><line x1="40" y1="170" x2="640" y2="170"/><line x1="40" y1="220" x2="640" y2="220"/>
           </g>
-          <g font-size="11" fill="#5C6683" font-family="Plus Jakarta Sans, Noto Sans KR, sans-serif">
+          <g font-size="11" fill="#5C6683" font-family="NanumSquare, Noto Sans KR, sans-serif">
             <text x="8" y="24">100%</text><text x="14" y="74">75%</text><text x="14" y="124">50%</text><text x="14" y="174">25%</text><text x="22" y="224">0</text>
             <text x="28" y="246">D+0</text><text x="168" y="246">D+7</text><text x="304" y="246">D+14</text><text x="444" y="246">D+21</text><text x="624" y="246">D+30</text>
           </g>
@@ -139,30 +145,30 @@ a{color:inherit;text-decoration:none}
           <path d="M40 220 C70 215 80 210 100 204 S150 190 180 178 S215 150 240 128 S290 90 320 70 S410 44 460 36 S560 24 640 20" fill="none" stroke="#16264A" stroke-width="3" stroke-linecap="round"/>
           <circle cx="180" cy="178" r="6" fill="#fff" stroke="#16264A" stroke-width="3"/>
           <circle cx="320" cy="70" r="7" fill="#D4573E" stroke="#fff" stroke-width="3"/>
-          <text x="196" y="170" font-size="12" font-weight="700" fill="#B8452F" font-family="Plus Jakarta Sans, Noto Sans KR, sans-serif">D+7 · 21%</text>
-          <text x="336" y="64" font-size="12" font-weight="700" fill="#B8452F" font-family="Plus Jakarta Sans, Noto Sans KR, sans-serif">D+14 · 75%</text>
-          <text x="196" y="42" font-size="12" font-weight="700" fill="#B8452F" font-family="Plus Jakarta Sans, Noto Sans KR, sans-serif">개입 골든타임</text>
+          <text x="196" y="170" font-size="12" font-weight="700" fill="#B8452F" font-family="NanumSquare, Noto Sans KR, sans-serif">D+7 · 21%</text>
+          <text x="336" y="64" font-size="12" font-weight="700" fill="#B8452F" font-family="NanumSquare, Noto Sans KR, sans-serif">D+14 · 75%</text>
+          <text x="196" y="42" font-size="12" font-weight="700" fill="#B8452F" font-family="NanumSquare, Noto Sans KR, sans-serif">개입 골든타임</text>
         </svg>
-        <div style="margin-top:6px;padding:14px 16px;border-radius:16px;background:#fff;font-size:13px;line-height:1.55;color:var(--ink)"><b>D+5에 첫 안부 + 비교 체크리스트</b>를 보내는 흐름이 이 구간 앞에 놓여 있어요. 자동 문구는 열람 사실을 언급하지 않고, 직원 승인 후 발송됩니다.</div>
+        <div style="margin-top:6px;padding:14px 16px;border-radius:2px;background:#fff;font-size:11px;line-height:1.55;color:var(--ink)"><b>D+5에 첫 안부 + 비교 체크리스트</b>를 보내는 흐름이 이 구간 앞에 놓여 있어요. 자동 문구는 열람 사실을 언급하지 않고, 직원 승인 후 발송됩니다.</div>
       </div>
 
       <div class="card" style="flex:1 1 440px">
         <h2 class="h2">누가, 왜 떠나나</h2><div class="sub" style="margin:4px 0 18px">환자 유형 × 이탈 사유 (명)</div>
         <div style="display:grid;grid-template-columns:104px repeat(5,minmax(0,1fr));gap:6px;align-items:center">
           <div></div>
-          <sc-for list="{{heatHead}}" as="h" hint-placeholder-count="5"><div style="font-size:11px;font-weight:600;text-align:center;color:#5C6683;line-height:1.25">{{h.t}}</div></sc-for>
+          <sc-for list="{{heatHead}}" as="h" hint-placeholder-count="5"><div style="font-size:10px;font-weight:700;text-align:center;color:#5C6683;line-height:1.25">{{h.t}}</div></sc-for>
           <sc-for list="{{heat}}" as="r" hint-placeholder-count="5">
             <div style="display:contents">
-              <div style="font-size:12px;font-weight:600;line-height:1.3">{{r.name}}</div>
-              <div style="height:44px;border-radius:12px;background:{{r.c0.bg}};color:{{r.c0.fg}};display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px">{{r.c0.n}}</div>
-              <div style="height:44px;border-radius:12px;background:{{r.c1.bg}};color:{{r.c1.fg}};display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px">{{r.c1.n}}</div>
-              <div style="height:44px;border-radius:12px;background:{{r.c2.bg}};color:{{r.c2.fg}};display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px">{{r.c2.n}}</div>
-              <div style="height:44px;border-radius:12px;background:{{r.c3.bg}};color:{{r.c3.fg}};display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px">{{r.c3.n}}</div>
-              <div style="height:44px;border-radius:12px;background:{{r.c4.bg}};color:{{r.c4.fg}};display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px">{{r.c4.n}}</div>
+              <div style="font-size:11px;font-weight:700;line-height:1.3">{{r.name}}</div>
+              <div style="height:44px;border-radius:2px;background:{{r.c0.bg}};color:{{r.c0.fg}};display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px">{{r.c0.n}}</div>
+              <div style="height:44px;border-radius:2px;background:{{r.c1.bg}};color:{{r.c1.fg}};display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px">{{r.c1.n}}</div>
+              <div style="height:44px;border-radius:2px;background:{{r.c2.bg}};color:{{r.c2.fg}};display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px">{{r.c2.n}}</div>
+              <div style="height:44px;border-radius:2px;background:{{r.c3.bg}};color:{{r.c3.fg}};display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px">{{r.c3.n}}</div>
+              <div style="height:44px;border-radius:2px;background:{{r.c4.bg}};color:{{r.c4.fg}};display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px">{{r.c4.n}}</div>
             </div>
           </sc-for>
         </div>
-        <div style="margin-top:18px;padding:14px 16px;border-radius:16px;background:var(--coraltint);color:var(--coral);font-size:13px;font-weight:500;line-height:1.5">비교 쇼퍼 10명 중 7명이 타병원 비교로 이탈했어요. 이 유형에는 유사 케이스와 장기 경과 증거가 가장 중요해요.</div>
+        <div style="margin-top:18px;padding:14px 16px;border-radius:2px;background:var(--coraltint);color:var(--coral);font-size:11px;font-weight:400;line-height:1.5">비교 쇼퍼 10명 중 7명이 타병원 비교로 이탈했어요. 이 유형에는 유사 케이스와 장기 경과 증거가 가장 중요해요.</div>
       </div>
     </section>
 
@@ -177,10 +183,10 @@ a{color:inherit;text-decoration:none}
           <sc-for list="{{winback}}" as="w" hint-placeholder-count="5">
             <div class="trow">
               <div style="flex:0 0 40px;width:40px;height:40px;border-radius:50%;background:#DCE3F0;color:#16264A;font-weight:700;display:flex;align-items:center;justify-content:center">{{w.init}}</div>
-              <div style="flex:1 1 150px;min-width:0"><div style="font-size:14px;font-weight:700">{{w.name}}</div><div class="sub" style="font-size:12px">{{w.proc}}</div></div>
-              <div style="flex:1 1 150px;min-width:0"><span class="{{w.chipCls}}">{{w.reason}}</span><div class="sub" style="font-size:12px;margin-top:6px">{{w.signal}}</div></div>
-              <div style="flex:1.3 1 190px;min-width:0;font-size:13px;line-height:1.45;font-weight:500">{{w.action}}</div>
-              <div style="flex:0 0 84px"><div style="font-size:12px;font-weight:700;margin-bottom:6px">{{w.score}}</div><div class="bar"><i style="width:{{w.score}}"></i></div></div>
+              <div style="flex:1 1 150px;min-width:0"><div style="font-size:12px;font-weight:700">{{w.name}}</div><div class="sub" style="font-size:11px">{{w.proc}}</div></div>
+              <div style="flex:1 1 150px;min-width:0"><span class="{{w.chipCls}}">{{w.reason}}</span><div class="sub" style="font-size:11px;margin-top:6px">{{w.signal}}</div></div>
+              <div style="flex:1.3 1 190px;min-width:0;font-size:11px;line-height:1.45;font-weight:400">{{w.action}}</div>
+              <div style="flex:0 0 84px"><div style="font-size:11px;font-weight:700;margin-bottom:6px">{{w.score}}</div><div class="bar"><i style="width:{{w.score}}"></i></div></div>
             </div>
           </sc-for>
         </div>
@@ -191,7 +197,7 @@ a{color:inherit;text-decoration:none}
           <h2 class="h2">이탈 직전 신호</h2><div class="sub" style="margin:4px 0 16px">이탈 24명이 떠나기 전 공통으로 보인 패턴</div>
           <div style="display:flex;flex-direction:column;gap:14px">
             <sc-for list="{{pre}}" as="p" hint-placeholder-count="4">
-              <div><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px"><span style="font-weight:600">{{p.t}}</span><span class="sub">{{p.n}}명</span></div><div class="bar"><i style="width:{{p.w}}"></i></div></div>
+              <div><div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:6px"><span style="font-weight:700">{{p.t}}</span><span class="sub">{{p.n}}명</span></div><div class="bar"><i style="width:{{p.w}}"></i></div></div>
             </sc-for>
           </div>
         </div>
@@ -199,14 +205,14 @@ a{color:inherit;text-decoration:none}
           <h2 class="h2">시술별 이탈률</h2><div class="sub" style="margin:4px 0 14px">견적 후 기준</div>
           <div style="display:flex;flex-direction:column;gap:14px">
             <sc-for list="{{procs}}" as="q" hint-placeholder-count="3">
-              <div><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px"><span style="font-weight:600">{{q.t}}</span><span class="sub">{{q.sub}}</span></div><div class="{{q.cls}}"><i style="width:{{q.w}}"></i></div></div>
+              <div><div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:6px"><span style="font-weight:700">{{q.t}}</span><span class="sub">{{q.sub}}</span></div><div class="{{q.cls}}"><i style="width:{{q.w}}"></i></div></div>
             </sc-for>
           </div>
         </div>
       </div>
     </section>
 
-    <div style="display:flex;justify-content:space-between;align-items:center;padding:0 4px 8px;flex-wrap:wrap;gap:8px"><span class="sub" style="font-size:12px">표시된 환자명·수치는 디자인용 샘플 데이터입니다.</span><span class="hand" style="font-size:24px;color:var(--navy2);transform:rotate(-2deg)">Better than yesterday</span></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:0 4px 8px;flex-wrap:wrap;gap:8px"><span class="sub" style="font-size:11px">표시된 환자명·수치는 디자인용 샘플 데이터입니다.</span><span class="hand" style="font-size:21px;color:var(--navy2);transform:rotate(-2deg)">Better than yesterday</span></div>
   </main>
 </div>
 </x-dc>

@@ -95,7 +95,7 @@
     proc(xdc, vals);
 
     var css = document.createElement('style');
-    css.textContent = 'x-dc{display:block}html,body{background:#E9ECF2}.sv{margin:0 auto}';
+    css.textContent = 'x-dc{display:block}html,body{background:#F5F5F2}.sv{margin:0 auto}';
     document.head.appendChild(css);
     document.documentElement.setAttribute('data-dc-ready', '1');
   });
