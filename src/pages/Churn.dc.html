@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>이탈 분석</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+@@HEAD@@
+<style>
+.c1{--cols:1.1fr 1fr 1.3fr 1.9fr 1fr}
+.c2{--cols:1.4fr .6fr 1.2fr}
+.c3{--cols:1.2fr 1.2fr 1fr}
+.hm{display:grid;grid-template-columns:96px repeat(5,minmax(0,1fr));gap:5px;align-items:center}
+.hc{height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px}
+</style>
+</helmet>
+<div class="app"><div class="frame">
+  @@SIDE@@
+  <main class="panel">
+    <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-end">
+      <div><div class="crumb">분석</div><h1 class="ttl">이탈 분석</h1></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <span class="btn dark"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8zM14 3v5h5"/></svg>리포트 내보내기</span>
+        <span class="btn">최근 60일</span>
+        <span class="btn">전체 시술</span>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <a class="tab on" href="Churn.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18M7 16v-5M12 16V7M17 16v-3"/></svg>개요</a>
+      <a class="tab" href="Churn.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg>시점</a>
+      <a class="tab" href="Churn.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0zM12 9v4M12 17h.01"/></svg>사유</a>
+      <a class="tab" href="Churn.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>회복</a>
+    </div>
+
+    <div class="sec"><h2>견적 이후 이탈</h2><div class="sbox"><span style="display:flex;gap:8px;align-items:center"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 21l-4.3-4.3M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16z"/></svg>환자 검색</span><span style="font-size:10px">⌘F</span></div></div>
+
+    <div class="stats">
+      <div class="stat hot"><div class="k">이탈 · 견적 52명 중</div><div class="v">24<span style="font-size:12px;margin-left:4px">명</span></div><div class="d">이탈률 46%</div></div>
+      <div class="stat"><div class="k">이탈 집중 구간</div><div class="v">D+7~14</div><div class="d">이탈의 54%</div></div>
+      <div class="stat"><div class="k">평균 이탈 시점</div><div class="v">D+11</div><div class="d">상담일 기준</div></div>
+      <div class="stat"><div class="k">되살릴 수 있는 환자</div><div class="v">9<span style="font-size:12px;margin-left:4px">명</span></div><div class="d">지금 연락 가능</div></div>
+    </div>
+
+    <div class="grp">
+      <div class="gh2"><div class="t"><span>언제 떠나나</span><span class="chipx hot">D+7~14에 집중</span></div><span class="mu" style="font-size:11px">상담 후 경과일별 이탈 누적 · 이탈 24명 기준</span></div>
+      <div class="box">
+        <svg viewBox="0 0 700 270" style="width:100%;height:auto" role="img" aria-label="상담 후 경과일별 이탈 누적 곡선. D+7에서 D+14 사이에 가파르게 상승">
+          <rect x="180" y="20" width="140" height="200" rx="8" fill="#FBF1EE"/>
+          <g stroke="#ECECE7" stroke-width="1"><line x1="40" y1="20" x2="640" y2="20"/><line x1="40" y1="70" x2="640" y2="70"/><line x1="40" y1="120" x2="640" y2="120"/><line x1="40" y1="170" x2="640" y2="170"/><line x1="40" y1="220" x2="640" y2="220"/></g>
+          <g font-size="11" fill="#80807A" font-family="NanumSquare, Noto Sans KR, sans-serif">
+            <text x="8" y="24">100%</text><text x="14" y="74">75%</text><text x="14" y="124">50%</text><text x="14" y="174">25%</text><text x="22" y="224">0</text>
+            <text x="28" y="246">D+0</text><text x="168" y="246">D+7</text><text x="304" y="246">D+14</text><text x="444" y="246">D+21</text><text x="624" y="246">D+30</text>
+          </g>
+          <path d="M40 220 C70 215 80 210 100 204 S150 190 180 178 S215 150 240 128 S290 90 320 70 S410 44 460 36 S560 24 640 20" fill="none" stroke="#14213D" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="180" cy="178" r="5" fill="#fff" stroke="#14213D" stroke-width="2"/>
+          <circle cx="320" cy="70" r="6" fill="#D4573E" stroke="#fff" stroke-width="2"/>
+          <g font-size="11" fill="#B8452F" font-family="NanumSquare, Noto Sans KR, sans-serif"><text x="196" y="170">D+7 · 21%</text><text x="336" y="64">D+14 · 75%</text><text x="196" y="42">개입 골든타임</text></g>
+        </svg>
+      </div>
+      <div class="note">D+5에 첫 안부와 비교 체크리스트를 보내는 흐름이 이 구간 앞에 놓여 있어요. 자동 문구는 열람 사실을 언급하지 않고 직원 승인 후 발송돼요.</div>
+    </div>
+
+    <div class="cols">
+      <div class="grp" style="flex:1.3 1 460px">
+        <div class="gh2"><div class="t"><span>누가, 왜 떠나나</span><span class="cnt">환자 유형 × 사유</span></div></div>
+        <div class="box">
+          <div class="hm">
+            <div></div>
+            <sc-for list="{{heatHead}}" as="h" hint-placeholder-count="5"><div class="mu" style="font-size:11px;text-align:center">{{h.t}}</div></sc-for>
+            <sc-for list="{{heat}}" as="r" hint-placeholder-count="5">
+              <div style="display:contents">
+                <div style="font-size:11px">{{r.name}}</div>
+                <div class="hc" style="background:{{r.c0.bg}};color:{{r.c0.fg}}">{{r.c0.n}}</div>
+                <div class="hc" style="background:{{r.c1.bg}};color:{{r.c1.fg}}">{{r.c1.n}}</div>
+                <div class="hc" style="background:{{r.c2.bg}};color:{{r.c2.fg}}">{{r.c2.n}}</div>
+                <div class="hc" style="background:{{r.c3.bg}};color:{{r.c3.fg}}">{{r.c3.n}}</div>
+                <div class="hc" style="background:{{r.c4.bg}};color:{{r.c4.fg}}">{{r.c4.n}}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <div class="note">비교 쇼퍼 10명 중 7명이 타병원 비교로 이탈했어요. 이 유형에는 유사 케이스와 장기 경과 증거가 가장 중요해요.</div>
+      </div>
+
+      <div style="flex:1 1 320px;display:flex;flex-direction:column;min-width:0">
+        <div class="grp">
+          <div class="gh2"><div class="t"><span>이탈 직전 신호</span></div></div>
+          <div class="tbl">
+            <div class="tr th c2" style="min-width:0"><span>패턴</span><span>인원</span><span></span></div>
+            <sc-for list="{{pre}}" as="p" hint-placeholder-count="4"><div class="tr c2" style="min-width:0"><span>{{p.t}}</span><span>{{p.n}}</span><span class="hb"><i style="width:{{p.w}}"></i></span></div></sc-for>
+          </div>
+        </div>
+        <div class="grp">
+          <div class="gh2"><div class="t"><span>시술별 이탈률</span></div></div>
+          <div class="tbl">
+            <div class="tr th c3" style="min-width:0"><span>시술</span><span>견적 → 이탈</span><span>이탈률</span></div>
+            <sc-for list="{{procs}}" as="q" hint-placeholder-count="3"><div class="tr c3" style="min-width:0"><span>{{q.t}}</span><span class="mu">{{q.sub}}</span><span><span class="{{q.cls}}">{{q.rate}}</span></span></div></sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grp">
+      <div class="gh2"><div class="t"><span>되살릴 수 있는 환자</span><span class="cnt">9</span></div><span class="mu" style="font-size:11px">회복 가능성 상위 5명 · 사유별 맞춤 제안</span></div>
+      <div class="tbl">
+        <div class="tr th c1"><span>환자</span><span>사유</span><span>최근 신호</span><span>제안</span><span>회복 가능성</span></div>
+        <sc-for list="{{winback}}" as="w" hint-placeholder-count="5">
+          <div class="tr c1"><span class="who"><span class="av0">{{w.init}}</span>{{w.name}}</span><span><span class="{{w.cls}}">{{w.reason}}</span></span><span class="mu">{{w.signal}}</span><span>{{w.action}}</span><span class="pg"><b>{{w.score}}</b><i><span style="width:{{w.score}};background:#2F5FD0"></span></i></span></div>
+        </sc-for>
+      </div>
+    </div>
+    <div class="note">표시된 환자명·수치는 디자인용 샘플 데이터입니다.</div>
+  </main>
+</div></div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1800}}'>
+class Component extends DCLogic {
+@@SIDEJS@@
+  renderVals() {
+    const cell = (n) => {
+      if (n === 0) return { n: '·', bg: '#F3F3EF', fg: '#B5B5AE' };
+      if (n === 1) return { n: n, bg: '#E3E8F3', fg: '#14213D' };
+      if (n <= 3) return { n: n, bg: '#B9C7E4', fg: '#14213D' };
+      return { n: n, bg: '#B8452F', fg: '#FFFFFF' };
+    };
+    const raw = [['이벤트형', [1, 0, 0, 0, 3]], ['비교 쇼퍼', [7, 2, 1, 0, 0]], ['재시술 경험자', [1, 1, 3, 0, 0]], ['결정권자 동반', [0, 1, 0, 3, 0]], ['조용한 환자', [0, 1, 0, 0, 0]]];
+    const heat = raw.map(([name, v]) => ({ name, c0: cell(v[0]), c1: cell(v[1]), c2: cell(v[2]), c3: cell(v[3]), c4: cell(v[4]) }));
+    const heatHead = [{ t: '타병원 비교' }, { t: '가격' }, { t: '두려움' }, { t: '결정권자' }, { t: '시기' }];
+    const w = (init, name, reason, cls, signal, action, score) => ({ init, name, reason, cls, signal, action, score });
+    const winback = [
+      w('윤', '윤OO', '결정권자', 'pill p-wait', '배우자 기기 열람 2회', '동반 상담 초대 · 공유용 요약 전달', '74%'),
+      w('김', '김OO', '가격 부담', 'pill p-wait', '견적 재열람 2회', '단계별 시술안 · 분납 안내', '70%'),
+      w('박', '박OO', '타병원 비교', 'pill p-high', 'D+12 · 12일 무열람', '비교 체크리스트 + 삭제량 리포트', '62%'),
+      w('오', '오OO', '시술 두려움', 'pill p-wait', '임시치아 문의 1회', '임시치아 체험일 · 유사 재시술 케이스', '55%'),
+      w('서', '서OO', '시기 보류', 'pill p-wait', '행사 일정 문의', '일정 역산 타임라인 제안', '48%')
+    ];
+    const pre = [{ t: 'Smile Plan 열람 중단', n: 17, w: '71%' }, { t: '견적 재요청 없음', n: 14, w: '58%' }, { t: '메시지 읽고 답 없음', n: 11, w: '46%' }, { t: '비교 중 응답', n: 9, w: '38%' }];
+    const procs = [
+      { t: '라미네이트', sub: '32명 중 12명', rate: '38%', cls: 'pill p-low' },
+      { t: '올세라믹', sub: '14명 중 9명', rate: '64%', cls: 'pill p-high' },
+      { t: '재시술', sub: '6명 중 3명', rate: '50%', cls: 'pill p-med' }
+    ];
+    return Object.assign({}, this.sideData('Churn.dc.html'), { heat, heatHead, winback, pre, procs });
+  }
+}
+</script>
+</body>
+</html>

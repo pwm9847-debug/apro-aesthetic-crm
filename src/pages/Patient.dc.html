@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>환자 360</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+@@HEAD@@
+<style>
+.c1{--cols:1.5fr 2.4fr .5fr}
+.c2{--cols:.8fr 1.6fr 1.6fr}
+.c3{--cols:.9fr 2fr}
+.st{display:flex;gap:6px}
+.st>div{flex:1}
+.dy{flex:1 1 0;min-width:0;text-align:center}
+.dy .b{height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px}
+</style>
+</helmet>
+<div class="app"><div class="frame">
+  @@SIDE@@
+  <main class="panel">
+    <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-end">
+      <div>
+        <div class="crumb"><a href="Main.dc.html">홈</a> / 환자 여정</div>
+        <h1 class="ttl" style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">박OO <span style="display:flex;gap:6px;flex-wrap:wrap;font-size:12px"><span class="pill p-high">이탈 위험</span><span class="type">비교 기간 · D+12</span><span class="type">올세라믹 · 상악 8</span></span></h1>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <span class="btn dark"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>안부 메시지 검토</span>
+        <span class="btn">메모 남기기</span>
+        <span class="btn">공유</span>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <a class="tab on" href="Patient.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>개요</a>
+      <a class="tab" href="Patient.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg>타임라인</a>
+      <a class="tab" href="Survey.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4h6a1 1 0 0 1 1 1v1H8V5a1 1 0 0 1 1-1zM8 6H6a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-2"/></svg>설문</a>
+      <a class="tab" href="Patient.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>Smile Plan</a>
+    </div>
+
+    <div class="sec"><h2>결정 레이더</h2><span class="chipx">내부 참고용 · 환자에게 노출되지 않아요</span></div>
+
+    <div class="stats">
+      <div class="stat hot"><div class="k">이탈 위험 지수</div><div class="v">72</div><div class="d">높음</div></div>
+      <div class="stat"><div class="k">현재 단계</div><div class="v">비교</div><div class="d">탐색 → 비교 → 검증 → 결정</div></div>
+      <div class="stat"><div class="k">마지막 열람</div><div class="v">D+0</div><div class="d">12일째 열람 없음</div></div>
+      <div class="stat"><div class="k">비교 중인 병원</div><div class="v">3<span style="font-size:12px;margin-left:4px">곳</span></div><div class="d">1순위 기준 · 경험</div></div>
+    </div>
+
+    <div class="grp">
+      <div class="gh2"><div class="t"><span>단계</span></div></div>
+      <div class="box">
+        <div class="st">
+          <sc-for list="{{steps}}" as="s" hint-placeholder-count="4"><div><div style="height:4px;border-radius:9px;background:{{s.bg}}"></div><div style="margin-top:8px;color:{{s.fg}}">{{s.t}}</div></div></sc-for>
+        </div>
+      </div>
+    </div>
+
+    <div class="grp">
+      <div class="gh2"><div class="t"><span>Smile Plan 열람</span><span class="cnt">상담일부터 매일</span></div><span class="mu" style="font-size:11px">점선 = 골든타임 D+7~14</span></div>
+      <div class="box"><div style="display:flex;gap:6px">
+        <sc-for list="{{days}}" as="d" hint-placeholder-count="13"><div class="dy"><div class="b" style="background:{{d.bg}};border:{{d.bd}}">{{d.n}}</div><div class="mu" style="font-size:10px;margin-top:6px">{{d.l}}</div></div></sc-for>
+      </div></div>
+    </div>
+
+    <div class="cols">
+      <div class="grp" style="flex:1.2 1 400px">
+        <div class="gh2"><div class="t"><span>위험 지수를 올린 근거</span></div></div>
+        <div class="tbl">
+          <div class="tr th c3" style="min-width:0"><span>가산점</span><span>근거</span></div>
+          <sc-for list="{{reasons}}" as="r" hint-placeholder-count="4"><div class="tr c3" style="min-width:0"><span><span class="pill p-high">{{r.pt}}</span></span><span>{{r.t}}</span></div></sc-for>
+        </div>
+      </div>
+      <div class="grp" style="flex:1 1 340px">
+        <div class="gh2"><div class="t"><span>다음 행동 제안</span><span class="cnt">직원 승인 후 발송</span></div></div>
+        <div class="box" style="background:#14213D;color:#fff;border-color:#14213D">
+          <div style="font-size:14px;line-height:1.5">타병원 비교에 쓸 체크리스트와 삭제량 리포트를 보내요</div>
+          <div style="margin-top:12px;background:rgba(255,255,255,.1);border-radius:8px;padding:12px 14px;font-size:11px;line-height:1.7">&quot;안녕하세요, APRO입니다. 상담 때 말씀하신 상악 8개 올세라믹 설계 내용을 정리해 드려요. 다른 병원과 비교하실 때 참고하실 질문 목록도 함께 담았습니다.&quot;</div>
+          <div style="display:flex;gap:6px;margin-top:12px;flex-wrap:wrap"><span class="pill" style="background:rgba(255,255,255,.14)">열람 사실 언급 없음</span><span class="pill" style="background:rgba(255,255,255,.14)">시술명 숨김 알림톡</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cols">
+      <div class="grp" style="flex:1 1 360px">
+        <div class="gh2"><div class="t"><span>상담 전 브리핑</span></div></div>
+        <div class="tbl">
+          <sc-for list="{{brief}}" as="b" hint-placeholder-count="5"><div class="tr c3" style="min-width:0;--cols:.7fr 2fr"><span class="mu">{{b.k}}</span><span>{{b.v}}</span></div></sc-for>
+        </div>
+      </div>
+      <div class="grp" style="flex:1 1 360px">
+        <div class="gh2"><div class="t"><span>심미 취향 카드</span></div><span class="mu" style="font-size:11px">설문 · 이미지 테스트</span></div>
+        <div class="box">
+          <div class="mu" style="font-size:11px;margin-bottom:8px">선호 색상</div>
+          <div style="display:flex;gap:10px">
+            <sc-for list="{{shades}}" as="s" hint-placeholder-count="4"><div style="text-align:center"><div style="width:38px;height:46px;border-radius:16px 16px 12px 12px;background:{{s.bg}};border:{{s.bd}}"></div><div style="font-size:10px;margin-top:6px;color:{{s.fg}}">{{s.t}}</div></div></sc-for>
+          </div>
+          <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:16px">
+            <div><div class="mu" style="font-size:11px;margin-bottom:6px">선호 형태</div><span class="pill p-low">자연스러운 곡선</span></div>
+            <div><div class="mu" style="font-size:11px;margin-bottom:6px">변화 정도</div><span class="pill p-wait">2 / 5 · 자연스럽게</span></div>
+          </div>
+          <div style="margin-top:16px"><div class="mu" style="font-size:11px;margin-bottom:6px">피하고 싶은 느낌</div><div style="display:flex;gap:6px;flex-wrap:wrap"><span class="chipx hot">인위적으로 하얀</span><span class="chipx hot">너무 큰 치아</span><span class="chipx hot">일자 배열</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grp">
+      <div class="gh2"><div class="t"><span>접점 타임라인</span><span class="cnt">7</span></div></div>
+      <div class="tbl">
+        <div class="tr th c2"><span>날짜</span><span>이벤트</span><span>비고</span></div>
+        <sc-for list="{{timeline}}" as="t" hint-placeholder-count="7"><div class="{{t.cls}}"><span class="mu">{{t.d}}</span><span>{{t.t}}</span><span class="mu">{{t.s}}</span></div></sc-for>
+      </div>
+    </div>
+
+    <div class="grp">
+      <div class="gh2"><div class="t"><span>설문 응답 요약</span></div><span class="mu" style="font-size:11px">10월 28일 · 모바일</span></div>
+      <div class="tbl">
+        <sc-for list="{{survey}}" as="s" hint-placeholder-count="6"><div class="tr" style="min-width:0;--cols:.8fr 2.4fr"><span class="mu">{{s.k}}</span><span>{{s.v}}</span></div></sc-for>
+      </div>
+      <div class="note" style="color:#B8452F">위험 플래그 · 이갈이 + 올세라믹 8개 → 재료·나이트가드 상담을 먼저 준비하세요.</div>
+    </div>
+    <div class="note">표시된 환자명·수치는 디자인용 샘플 데이터입니다.</div>
+  </main>
+</div></div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1900}}'>
+class Component extends DCLogic {
+@@SIDEJS@@
+  renderVals() {
+    const steps = [
+      { t: '탐색', bg: '#14213D', fg: '#80807A' },
+      { t: '비교 (현재)', bg: '#D4573E', fg: '#B8452F' },
+      { t: '검증', bg: '#E8E8E3', fg: '#80807A' },
+      { t: '결정', bg: '#E8E8E3', fg: '#80807A' }
+    ];
+    const reasons = [
+      { pt: '+30', t: '상담 후 12일째 Smile Plan 열람이 없어요' },
+      { pt: '+22', t: '타병원 3곳 상담, 1순위 기준이 경험이에요' },
+      { pt: '+12', t: '메시지를 읽고 답이 없었어요 (D+6)' },
+      { pt: '+8', t: '견적 재요청이 없어요' }
+    ];
+    const hits = [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    const days = hits.map((v, i) => {
+      const gold = i >= 7;
+      return { n: v === 0 ? '' : String(v), l: 'D+' + i, bg: v > 0 ? '#14213D' : (gold ? '#FBF1EE' : '#F0F0EC'), bd: v > 0 ? '0' : (gold ? '1px dashed #D4573E' : '0') };
+    });
+    const brief = [
+      { k: '유입', v: '블로그 케이스글 열람 4회 → 네이버 예약' },
+      { k: '본 증거', v: '유사 케이스 6건 · 원장 포트폴리오 · 5년 경과' },
+      { k: '결정권자', v: '본인 (비용 본인 부담)' },
+      { k: '연락 선호', v: '카카오 알림톡 · 시술명 숨김 · 평일 저녁' },
+      { k: '주의', v: '비교 쇼퍼 유형 · 압박 문구 금지' }
+    ];
+    const shades = [
+      { t: '자연', bg: '#F3E6C9', fg: '#80807A', bd: '2px solid transparent' },
+      { t: '한 톤 밝게', bg: '#F6EEDC', fg: '#16181D', bd: '2px solid #14213D' },
+      { t: '화사한', bg: '#F4F5F7', fg: '#80807A', bd: '2px solid transparent' },
+      { t: '매우 밝은', bg: '#FFFFFF', fg: '#80807A', bd: '2px solid #E7E7E2' }
+    ];
+    const tl = (d, t, s, hot) => ({ d, t, s, cls: hot ? 'tr c2 hot' : 'tr c2' });
+    const timeline = [
+      tl('10/09', '블로그 케이스글 열람', '올세라믹 vs 라미네이트 · 4회'),
+      tl('10/21', '네이버 예약', '추적 링크 · 심미 상담'),
+      tl('10/27', '사전 설문 완료', '2분 · 모바일'),
+      tl('10/28', '내원 상담 · 견적 제시', '유사 케이스 열람 · 원장 상담'),
+      tl('10/28', 'Smile Plan 전송 · 열람 2회', '유사 케이스 섹션 체류'),
+      tl('11/03', '메시지 확인, 답장 없음', 'D+6 안부 메시지'),
+      tl('11/09', '열람 없음 12일째', '이탈 위험 단계로 전환', true)
+    ];
+    const survey = [
+      { k: '개선 부위', v: '치아 변색·누런 치아 (1순위) · 벌어진 앞니 · 치아 크기·모양' },
+      { k: '희망 치아 수', v: '윗니 8개 · 아랫니 상담 후 결정' },
+      { k: '불편함', v: '시린 증상 · 기존 보철물 탈락' },
+      { k: '습관', v: '이갈이 · 이 악물기' },
+      { k: '선택 기준', v: '1순위 경험 · 2순위 사후관리 · 타병원 3곳 상담' },
+      { k: '희망 시기', v: '3개월 이내 · 행사 일정 없음' }
+    ];
+    return Object.assign({}, this.sideData('Patient.dc.html'), { steps, reasons, days, brief, shades, timeline, survey });
+  }
+}
+</script>
+</body>
+</html>

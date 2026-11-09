@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>홈</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+@@HEAD@@
+<style>
+.c1{--cols:1.5fr 1.5fr 1fr .7fr .9fr 1.1fr}
+.c2{--cols:1.2fr .6fr 1fr .7fr 1.6fr}
+.c3{--cols:1.4fr .6fr .6fr 1.4fr}
+.c4{--cols:1.5fr .7fr .7fr .9fr}
+.c5{--cols:1.6fr 1fr 1fr .7fr .8fr}
+</style>
+</helmet>
+<div class="app"><div class="frame">
+  @@SIDE@@
+  <main class="panel">
+    <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-end">
+      <div><div class="crumb">APRO 심미 CRM</div><h1 class="ttl">홈</h1></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a class="btn dark" href="Patient.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM19 8v6M22 11h-6"/></svg>새 환자 등록</a>
+        <a class="btn" href="Survey.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>설문 링크 보내기</a>
+        <a class="btn" href="Ledger.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM8.5 10a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM21 15l-5-5L5 21"/></svg>케이스 추가</a>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <a class="tab on" href="Main.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>오늘</a>
+      <a class="tab" href="Patient.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>비교 기간 환자</a>
+      <a class="tab" href="Churn.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 17l-8.5-8.5-5 5L2 7M16 17h6v-6"/></svg>이탈 분석</a>
+    </div>
+
+    <div class="sec"><h2>오늘의 현황</h2><div class="sbox"><span style="display:flex;gap:8px;align-items:center"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 21l-4.3-4.3M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16z"/></svg>환자 검색</span><span style="font-size:10px">⌘F</span></div></div>
+
+    <div class="stats">
+      <div class="stat"><div class="k">신규 문의 · 이번 주</div><div class="v">18<span style="font-size:12px;margin-left:4px">건</span></div><div class="d">지난주 대비 +4</div></div>
+      <div class="stat"><div class="k">상담 → 결정 · 60일</div><div class="v">41<span style="font-size:12px;margin-left:4px">%</span></div><div class="d">68건 중 28건</div></div>
+      <div class="stat"><div class="k">비교 기간 환자</div><div class="v">27<span style="font-size:12px;margin-left:4px">명</span></div><div class="d">평균 D+9 경과</div></div>
+      <a class="stat hot" href="Churn.dc.html" style="display:block"><div class="k">이탈 위험 지금</div><div class="v">7<span style="font-size:12px;margin-left:4px">명</span></div><div class="d">D+10 이상 무반응 3명</div></a>
+    </div>
+
+    <div class="grp">
+      <div class="gh2"><div class="t"><span style="color:var(--coral)">이탈 위험 환자</span><span class="cnt">7</span></div><span class="btn"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0M14 4v4M8 10v4M16 16v4"/></svg>필터</span></div>
+      <div class="tbl">
+        <div class="tr th c1"><span>환자</span><span>시술</span><span>단계</span><span>경과</span><span>이탈 위험</span><span>여정 진행</span></div>
+        <sc-for list="{{risk}}" as="r" hint-placeholder-count="5">
+          <div class="tr c1"><span class="who"><span class="av0">{{r.init}}</span>{{r.name}}</span><span>{{r.proc}}</span><span><span class="type">{{r.stage}}</span></span><span class="mu">{{r.age}}</span><span><span class="{{r.cls}}">{{r.lvl}}</span></span><span class="pg"><b>{{r.pct}}</b><i><span style="width:{{r.pct}};background:{{r.col}}"></span></i></span></div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div class="grp">
+      <div class="gh2"><div class="t"><span>결심 임박 · 진행 중</span><span class="cnt">3</span></div><span class="btn"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0M14 4v4M8 10v4M16 16v4"/></svg>필터</span></div>
+      <div class="tbl">
+        <div class="tr th c1"><span>환자</span><span>시술</span><span>단계</span><span>경과</span><span>이탈 위험</span><span>여정 진행</span></div>
+        <sc-for list="{{ok}}" as="r" hint-placeholder-count="3">
+          <div class="tr c1"><span class="who"><span class="av0">{{r.init}}</span>{{r.name}}</span><span>{{r.proc}}</span><span><span class="type">{{r.stage}}</span></span><span class="mu">{{r.age}}</span><span><span class="{{r.cls}}">{{r.lvl}}</span></span><span class="pg"><b>{{r.pct}}</b><i><span style="width:{{r.pct}};background:{{r.col}}"></span></i></span></div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div class="grp">
+      <div class="gh2"><div class="t"><span>상담 퍼널 · 이탈 구간</span><span class="chipx hot">가장 큰 이탈 · 견적 후 → 결정 46%</span></div><span class="mu" style="font-size:11px">최근 60일 · 문의 120명 기준</span></div>
+      <div class="tbl">
+        <div class="tr th c3"><span>단계</span><span>인원</span><span>이탈</span><span>잔존</span></div>
+        <sc-for list="{{funnel}}" as="f" hint-placeholder-count="5">
+          <div class="{{f.cls}}"><span>{{f.label}}</span><span>{{f.n}}</span><span><span class="{{f.dcls}}">{{f.drop}}</span></span><span class="{{f.bar}}"><i style="width:{{f.w}}"></i></span></div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div class="cols">
+      <div class="grp" style="flex:1 1 320px">
+        <div class="gh2"><div class="t"><span>이탈 사유</span><span class="cnt">24명</span></div></div>
+        <div class="tbl">
+          <div class="tr th c4" style="min-width:0"><span>사유</span><span>인원</span><span>비율</span><span></span></div>
+          <sc-for list="{{reasons}}" as="r" hint-placeholder-count="5">
+            <div class="tr c4" style="min-width:0"><span>{{r.label}}</span><span>{{r.n}}</span><span class="mu">{{r.pct}}</span><span class="{{r.bar}}"><i style="width:{{r.pct}}"></i></span></div>
+          </sc-for>
+        </div>
+      </div>
+      <div class="grp" style="flex:1.2 1 360px">
+        <div class="gh2"><div class="t"><span>채널별 전환</span><span class="cnt">추적 링크 · 번호</span></div></div>
+        <div class="tbl">
+          <div class="tr th c5" style="min-width:0"><span>채널</span><span>문의</span><span>결정</span><span>전환</span><span></span></div>
+          <sc-for list="{{channels}}" as="c" hint-placeholder-count="5">
+            <div class="tr c5" style="min-width:0"><span>{{c.name}}</span><span>{{c.inq}}</span><span>{{c.won}}</span><span><span class="{{c.cls}}">{{c.rate}}</span></span><span></span></div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <div class="grp">
+      <div class="gh2"><div class="t"><span>오늘의 연락</span><span class="cnt">4</span></div></div>
+      <div class="tbl">
+        <div class="tr th c2"><span>할 일</span><span>환자</span><span>유형</span><span>시간</span><span>상태</span></div>
+        <sc-for list="{{tasks}}" as="t" hint-placeholder-count="4">
+          <div class="tr c2"><span>{{t.t}}</span><span class="who"><span class="av0">{{t.init}}</span>{{t.who}}</span><span><span class="type">{{t.type}}</span></span><span class="mu">{{t.time}}</span><span><span class="{{t.cls}}">{{t.st}}</span></span></div>
+        </sc-for>
+      </div>
+    </div>
+    <div class="note">표시된 환자명·수치는 디자인용 샘플 데이터입니다.</div>
+  </main>
+</div></div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1700}}'>
+class Component extends DCLogic {
+@@SIDEJS@@
+  renderVals() {
+    const col = (p) => (p >= 60 ? '#2F5FD0' : p >= 35 ? '#E58A2D' : '#D4573E');
+    const lv = { High: 'pill p-high', Medium: 'pill p-med', Low: 'pill p-low' };
+    const mk = (init, name, proc, stage, age, lvl, p) => ({ init, name, proc, stage, age, lvl, cls: lv[lvl], pct: p + '%', col: col(p) });
+    const risk = [
+      mk('박', '박OO', '올세라믹 · 상악 8', '비교 중', 'D+12', 'High', 45),
+      mk('윤', '윤OO', '라미네이트 · 상하악 10', '결정권자', 'D+10', 'High', 58),
+      mk('김', '김OO', '라미네이트 · 상악 6', '견적 후', 'D+9', 'Medium', 52),
+      mk('한', '한OO', '재시술 · 라미네이트', '비교 중', 'D+5', 'Medium', 30),
+      mk('서', '서OO', '라미네이트 · 상악 4', '시기 보류', 'D+14', 'Medium', 38)
+    ];
+    const ok = [
+      mk('이', '이OO', '라미네이트 · 상악 6', '결심 임박', 'D+7', 'Low', 85),
+      mk('최', '최OO', '라미네이트 · 상하악 10', '결정권자 확인', 'D+6', 'Low', 60),
+      mk('정', '정OO', '올세라믹 · 상악 8', '견적 검토', 'D+3', 'Low', 62)
+    ];
+    const f = (label, n, drop, w, hot) => ({ label, n, drop: drop || '–', w, cls: hot ? 'tr c3 hot' : 'tr c3', dcls: hot ? 'pill p-high' : (drop ? 'pill p-wait' : 'mu'), bar: hot ? 'hb hot' : 'hb' });
+    const funnel = [f('문의', 120, '', '100%'), f('상담 예약', 84, '−36 (30%)', '70%'), f('내원 상담', 68, '−16 (19%)', '57%'), f('견적 제시', 52, '−16 (24%)', '43%'), f('결정', 28, '−24 (46%)', '23%', true)];
+    const reasons = [
+      { label: '타병원 비교', n: 9, pct: '38%', bar: 'hb hot' },
+      { label: '가격 부담', n: 5, pct: '21%', bar: 'hb' },
+      { label: '시술 두려움', n: 4, pct: '17%', bar: 'hb' },
+      { label: '결정권자 설득', n: 3, pct: '12%', bar: 'hb' },
+      { label: '시기 보류', n: 3, pct: '12%', bar: 'hb' }
+    ];
+    const ch = (name, inq, won, rate, cls) => ({ name, inq, won, rate, cls });
+    const channels = [
+      ch('네이버 플레이스', 46, 9, '20%', 'pill p-med'), ch('블로그 케이스글', 31, 10, '32%', 'pill p-low'),
+      ch('인스타그램', 22, 3, '14%', 'pill p-high'), ch('지인 소개', 13, 5, '38%', 'pill p-low'), ch('기타 · 전화', 8, 1, '13%', 'pill p-high')
+    ];
+    const tasks = [
+      { t: '상담 전화', init: '이', who: '이OO', type: '결심 임박', time: '10:00', st: '완료', cls: 'pill p-done' },
+      { t: '안부 메시지 검토', init: '박', who: '박OO', type: '이탈 위험', time: '11:30', st: '대기', cls: 'pill p-wait' },
+      { t: '동반 상담 초대', init: '최', who: '최OO', type: '결정권자', time: '14:00', st: '대기', cls: 'pill p-wait' },
+      { t: '5년 경과 촬영 리콜', init: '정', who: '정OO', type: '장기 경과', time: '16:30', st: '대기', cls: 'pill p-wait' }
+    ];
+    return Object.assign({}, this.sideData('Main.dc.html'), { risk, ok, funnel, reasons, channels, tasks });
+  }
+}
+</script>
+</body>
+</html>

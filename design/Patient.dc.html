@@ -12,236 +12,261 @@
 <style>
 body{margin:0}
 a{color:inherit;text-decoration:none}
-.app{--ink:#0E1A33;--navy:#16264A;--navy2:#2A4378;--mist:#DCE3F0;--line:#E2E6EF;--card:#FFFFFF;--bg:#F5F5F2;--muted:#5C6683;--coral:#B8452F;--coral2:#D4573E;--coraltint:#FBF1EE;--blue:#2F5FD0;background:var(--bg);color:var(--ink);font-family:'NanumSquare','Nanum Square','Noto Sans KR',sans-serif;box-sizing:border-box;min-height:100%}
+.app{--ink:#16181D;--navy:#14213D;--navy2:#2A4378;--muted:#80807A;--line:#E7E7E2;--panel:#F5F5F2;--coral:#B8452F;background:#DEDDD7;padding:28px;font-family:'NanumSquare','Nanum Square','Noto Sans KR',sans-serif;font-size:12px;letter-spacing:-.07em;color:var(--ink);box-sizing:border-box;min-height:100%}
 .app *{box-sizing:border-box}
-.card{background:var(--card);border-radius:2px;padding:24px;}
-.h2{font-size:18px;font-weight:700;margin:0;letter-spacing:-.07em}
-.sub{font-size:11px;color:var(--muted)}
-.chip{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;padding:5px 10px;border-radius:2px;white-space:nowrap}
-.chip.blue{background:#DDE6FA;color:#1F46A8}
-.chip.coral{background:var(--coraltint);color:var(--coral)}
-.chip.mist{background:var(--mist);color:#2A3A63}
-.chip.solid{background:var(--coral);color:#fff}
-.bar{height:6px;border-radius:2px;background:#DEE3EE;overflow:hidden}
-.bar>i{display:block;height:100%;border-radius:2px;background:var(--navy)}
-.hand{font-family:inherit;font-size:10px!important;color:#7A8299!important;transform:none!important;line-height:1.5!important;font-weight:400!important}
-.nav{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:2px;color:var(--muted);font-size:12px;font-weight:400}
-.nav:hover{background:#E8ECF5}
-.nav.on{background:var(--navy);color:#fff}
-.ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
-.dot{width:8px;height:8px;border-radius:50%;background:var(--blue);display:inline-block}
-.lab{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:-.07em;margin-bottom:8px}
-.btn{height:46px;border-radius:2px;border:0;padding:0 22px;font:600 12px 'NanumSquare','Nanum Square','Noto Sans KR',sans-serif;display:inline-flex;align-items:center;gap:8px;cursor:pointer}
-.app,.sv{letter-spacing:-.07em}
-.app button,.sv button{letter-spacing:-.07em;font-family:inherit}
-.app .card,.sv .card{border:1px solid #E6E6E0}
-.app .chip{padding:3px 8px;font-weight:400;border:1px solid transparent;background:transparent;border-radius:2px}
-.app .chip.blue{background:#EEF1F7;color:#1E3A6E}
-.app .chip.coral{background:transparent;border-color:#E4B8AD;color:#B8452F}
-.app .chip.mist{background:#F0F0EC;color:#3A4560}
-.app .chip.solid{background:#B8452F;color:#fff;border-color:#B8452F}
-.app .chip.dark{background:#0E1A33;color:#fff}
-.app .bar{height:3px;border-radius:0}
-.app .bar>i{border-radius:0}
-.app h1{font-weight:300}
-.sv .opt{border-radius:2px}</style>
-</helmet>
-<div class="app" style="display:flex;flex-wrap:wrap;gap:24px;padding:24px;align-items:flex-start">
+.app button{letter-spacing:-.07em;font-family:inherit}
+.frame{background:#ECECE8;border-radius:20px;padding:12px;display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start;max-width:1440px;margin:0 auto}
+.mu{color:var(--muted)}
+.ic{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+/* sidebar */
+.side{flex:0 0 232px;display:flex;flex-direction:column;gap:4px;padding:2px}
+.prof{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px;display:flex;gap:10px;align-items:center;margin-bottom:10px}
+.lg{width:32px;height:32px;border-radius:8px;background:var(--navy);display:flex;align-items:center;justify-content:center;flex:none}
+.srch{background:#E1E1DC;border-radius:8px;height:34px;display:flex;align-items:center;gap:8px;padding:0 10px;color:var(--muted);margin-bottom:10px}
+.lbl{font-size:11px;margin:6px 4px 4px}
+.ni{display:flex;align-items:center;gap:10px;height:34px;padding:0 10px;border-radius:8px;color:#3C3C38;border:1px solid transparent}
+.ni:hover{background:#E6E6E1}
+.ni.on{background:#fff;border-color:var(--line);color:var(--ink)}
+.sq{width:16px;height:16px;border-radius:5px;flex:none}
+.sep{height:1px;background:var(--line);margin:8px 4px}
+.gh{display:flex;align-items:center;gap:8px;height:30px;padding:0 6px;color:#3C3C38}
+/* panel */
+.panel{flex:1 1 640px;min-width:0;background:#fff;border:1px solid #E4E4DF;border-radius:12px;padding:22px 26px 30px}
+.crumb{font-size:12px;color:var(--muted)}
+.ttl{margin:6px 0 0;font-size:39px;font-weight:300;line-height:1.1}
+.btn{display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 12px;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:12px;color:var(--ink);cursor:pointer}
+.btn.dark{background:var(--navy);color:#fff;border-color:var(--navy)}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;border-bottom:1px solid var(--line);margin-top:22px}
+.tab{display:flex;gap:8px;align-items:center;height:38px;padding:0 10px;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab.on{color:var(--ink);border-bottom-color:var(--ink)}
+.sec{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;margin:22px 0 14px}
+.sec h2{font-size:17px;font-weight:400;margin:0}
+.sbox{display:flex;align-items:center;gap:8px;height:34px;width:240px;border:1px solid var(--line);border-radius:8px;padding:0 10px;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:14px}
+.stat{padding:16px 18px;border-left:1px solid var(--line);min-width:0}
+.stat:first-child{border-left:0}
+.stat .k{font-size:11px;color:var(--muted)}
+.stat .v{font-size:28px;font-weight:300;margin-top:6px;line-height:1.1}
+.stat .d{font-size:11px;color:var(--muted);margin-top:6px}
+.stat.hot{background:#FBF1EE}
+.stat.hot .k,.stat.hot .v,.stat.hot .d{color:var(--coral)}
+/* groups & tables */
+.grp{background:var(--panel);border:1px solid #EFEFEA;border-radius:12px;padding:10px;margin-bottom:14px;min-width:0}
+.gh2{display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center;padding:4px 4px 10px 8px}
+.gh2 .t{display:flex;align-items:center;gap:10px;font-size:14px}
+.cnt{display:inline-flex;align-items:center;gap:5px;background:#fff;border-radius:99px;padding:3px 9px;font-size:11px;color:#4A4A45}
+.tbl{background:#fff;border:1px solid #E9E9E4;border-radius:10px;overflow-x:auto}
+.tr{display:grid;grid-template-columns:var(--cols);align-items:center;gap:12px;padding:0 16px;min-height:38px;border-top:1px solid #EFEFEA;min-width:620px}
+.tr:first-child{border-top:0}
+.th{min-height:40px;color:#2B2B28}
+.tr.hot{background:#FDF7F5}
+.box{background:#fff;border:1px solid #E9E9E4;border-radius:10px;padding:16px 18px;min-width:0}
+.cols{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start}
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:2px 9px;border-radius:99px;white-space:nowrap}
+.p-high{background:#FBE7E3;color:#B8452F}
+.p-med{background:#FBF0D8;color:#97690F}
+.p-low{background:#E9EDF6;color:#3A4F85}
+.p-done{background:#E3F1EA;color:#2E7D5B}
+.p-wait{background:#F0F0EC;color:#5A5A55}
+.type{display:inline-flex;align-items:center;gap:5px;border:1px solid #E4E4DF;background:#F8F8F5;color:#4A4A45;border-radius:99px;padding:2px 9px;font-size:11px;white-space:nowrap}
+.pg{display:flex;align-items:center;gap:8px;font-size:11px}
+.pg b{font-weight:400;width:28px}
+.pg i{display:block;width:52px;height:4px;border-radius:9px;background:#E8E8E3;overflow:hidden}
+.pg i span{display:block;height:100%;border-radius:9px}
+.who{display:flex;align-items:center;gap:8px;min-width:0}
+.av0{flex:none;width:22px;height:22px;border-radius:50%;background:#E4E8F2;color:#14213D;font-size:10px;display:inline-flex;align-items:center;justify-content:center}
+.hb{height:4px;border-radius:9px;background:#EAEAE5;overflow:hidden}
+.hb i{display:block;height:100%;border-radius:9px;background:var(--navy)}
+.hb.hot i{background:#D4573E}
+.note{font-size:11px;color:var(--muted);margin:10px 4px 0}
+.chipx{display:inline-flex;font-size:11px;padding:2px 9px;border-radius:99px;border:1px solid #E4E4DF;background:#fff;white-space:nowrap}
+.chipx.hot{border-color:#E4B8AD;color:#B8452F;background:#FDF7F5}
+</style>
 
-  <aside class="card" style="flex:0 0 232px;display:flex;flex-direction:column;gap:6px;padding:20px 16px;min-height:900px;justify-content:space-between">
-    <div style="display:flex;flex-direction:column;gap:6px">
-      <div style="display:flex;align-items:center;gap:10px;padding:6px 12px 22px">
-        <div style="width:34px;height:34px;border-radius:2px;background:var(--navy);display:flex;align-items:center;justify-content:center">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 10c2 6 14 6 16 0"/><path d="M8 13v2M12 14v2M16 13v2"/></svg>
-        </div>
-        <div style="display:flex;flex-direction:column;line-height:1.1"><span style="font-weight:700;letter-spacing:-.07em;font-size:11px">APRO</span><span class="sub" style="font-size:10px">Aesthetic CRM</span></div>
-      </div>
-      <sc-for list="{{nav}}" as="n" hint-placeholder-count="6">
-        <a class="{{n.cls}}" href="{{n.href}}"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="{{n.d}}"/></svg><span>{{n.label}}</span></a>
-      </sc-for>
+<style>
+.c1{--cols:1.5fr 2.4fr .5fr}
+.c2{--cols:.8fr 1.6fr 1.6fr}
+.c3{--cols:.9fr 2fr}
+.st{display:flex;gap:6px}
+.st>div{flex:1}
+.dy{flex:1 1 0;min-width:0;text-align:center}
+.dy .b{height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px}
+</style>
+</helmet>
+<div class="app"><div class="frame">
+  <aside class="side">
+    <div class="prof">
+      <div class="lg"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 10c2 6 14 6 16 0"/><path d="M8 13v2M12 14v2M16 13v2"/></svg></div>
+      <div style="flex:1;min-width:0;line-height:1.35"><div style="font-size:12px">김지윤</div><div class="mu" style="font-size:10px">APRO 치과 · 상담실장</div></div>
+      <svg class="ic mu" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3zM9 5v14"/></svg>
     </div>
-    <div class="hand" style="font-size:23px;line-height:1;color:var(--navy2);transform:rotate(-4deg);padding:0 12px 12px">어제보다<br>한 걸음 더</div>
+    <div class="srch"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 21l-4.3-4.3M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16z"/></svg><span style="flex:1">검색</span><span style="font-size:10px">⌘F</span></div>
+    <div class="lbl">주요 메뉴</div>
+    <sc-for list="{{nav}}" as="n" hint-placeholder-count="6">
+      <a class="{{n.cls}}" href="{{n.href}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="{{n.d}}"/></svg><span>{{n.label}}</span></a>
+    </sc-for>
+    <div class="sep"></div>
+    <div class="gh"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg><span style="flex:1">시술 라인</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></div>
+    <sc-for list="{{lines}}" as="l" hint-placeholder-count="4">
+      <div class="ni"><span class="sq" style="background:{{l.c}}"></span><span>{{l.t}}</span></div>
+    </sc-for>
+    <div class="sep"></div>
+    <div class="gh"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg><span style="flex:1;color:var(--muted)">관리</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></div>
+    <div class="sep"></div>
+    <div class="gh"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg><span style="flex:1">연동</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></div>
+    <sc-for list="{{ints}}" as="l" hint-placeholder-count="3">
+      <div class="ni"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="{{l.d}}"/></svg><span>{{l.t}}</span></div>
+    </sc-for>
+    <div class="sep"></div>
+    <div class="gh"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg><span style="flex:1">설정</span></div>
+    <div class="ni"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0M14 4v4M8 10v4M16 16v4"/></svg><span>환경 설정</span></div>
+    <div class="ni"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>동의 관리</span></div>
   </aside>
 
-  <main style="flex:999 1 640px;min-width:0;display:flex;flex-direction:column;gap:24px">
-
-    <header style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-end;padding:8px 4px 0">
+  <main class="panel">
+    <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-end">
       <div>
-        <a href="Main.dc.html" class="sub" style="display:inline-flex;align-items:center;gap:4px;font-size:12px"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path d="M15 18l-6-6 6-6"/></svg>홈으로</a>
-        <div style="display:flex;align-items:center;gap:16px;margin-top:10px;flex-wrap:wrap">
-          <div style="width:64px;height:64px;border-radius:50%;background:#E5AE9F;color:#16264A;font-size:21px;font-weight:700;display:flex;align-items:center;justify-content:center">박</div>
-          <div>
-            <h1 style="margin:0;font-size:33px;font-weight:300;letter-spacing:-.07em;line-height:1.1">박OO님</h1>
-            <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap"><span class="chip coral">이탈 위험</span><span class="chip mist">비교 기간 · D+12</span><span class="chip mist">올세라믹 · 상악 8</span></div>
-          </div>
+        <div class="crumb"><a href="Main.dc.html">홈</a> / 환자 여정</div>
+        <h1 class="ttl" style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">박OO <span style="display:flex;gap:6px;flex-wrap:wrap;font-size:12px"><span class="pill p-high">이탈 위험</span><span class="type">비교 기간 · D+12</span><span class="type">올세라믹 · 상악 8</span></span></h1>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <span class="btn dark"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>안부 메시지 검토</span>
+        <span class="btn">메모 남기기</span>
+        <span class="btn">공유</span>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <a class="tab on" href="Patient.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>개요</a>
+      <a class="tab" href="Patient.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg>타임라인</a>
+      <a class="tab" href="Survey.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4h6a1 1 0 0 1 1 1v1H8V5a1 1 0 0 1 1-1zM8 6H6a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-2"/></svg>설문</a>
+      <a class="tab" href="Patient.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>Smile Plan</a>
+    </div>
+
+    <div class="sec"><h2>결정 레이더</h2><span class="chipx">내부 참고용 · 환자에게 노출되지 않아요</span></div>
+
+    <div class="stats">
+      <div class="stat hot"><div class="k">이탈 위험 지수</div><div class="v">72</div><div class="d">높음</div></div>
+      <div class="stat"><div class="k">현재 단계</div><div class="v">비교</div><div class="d">탐색 → 비교 → 검증 → 결정</div></div>
+      <div class="stat"><div class="k">마지막 열람</div><div class="v">D+0</div><div class="d">12일째 열람 없음</div></div>
+      <div class="stat"><div class="k">비교 중인 병원</div><div class="v">3<span style="font-size:12px;margin-left:4px">곳</span></div><div class="d">1순위 기준 · 경험</div></div>
+    </div>
+
+    <div class="grp">
+      <div class="gh2"><div class="t"><span>단계</span></div></div>
+      <div class="box">
+        <div class="st">
+          <sc-for list="{{steps}}" as="s" hint-placeholder-count="4"><div><div style="height:4px;border-radius:9px;background:{{s.bg}}"></div><div style="margin-top:8px;color:{{s.fg}}">{{s.t}}</div></div></sc-for>
         </div>
       </div>
-      <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <button class="btn" style="background:var(--card);color:var(--ink)">메모 남기기</button>
-        <button class="btn" style="background:var(--navy);color:#fff"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>안부 메시지 검토</button>
-      </div>
-    </header>
+    </div>
 
-    <section style="display:flex;flex-wrap:wrap;gap:24px;align-items:stretch">
+    <div class="grp">
+      <div class="gh2"><div class="t"><span>Smile Plan 열람</span><span class="cnt">상담일부터 매일</span></div><span class="mu" style="font-size:11px">점선 = 골든타임 D+7~14</span></div>
+      <div class="box"><div style="display:flex;gap:6px">
+        <sc-for list="{{days}}" as="d" hint-placeholder-count="13"><div class="dy"><div class="b" style="background:{{d.bg}};border:{{d.bd}}">{{d.n}}</div><div class="mu" style="font-size:10px;margin-top:6px">{{d.l}}</div></div></sc-for>
+      </div></div>
+    </div>
 
-      <!-- Radar -->
-      <div class="card" style="flex:1.6 1 560px;display:flex;flex-direction:column;gap:22px">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap">
-          <div><h2 class="h2">결정 레이더</h2><div class="sub" style="margin-top:4px">행동 신호로 추정한 현재 단계와 이탈 위험</div></div>
-          <span class="chip mist">내부 참고용 · 환자에게 노출되지 않아요</span>
-        </div>
-
-        <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
-          <sc-for list="{{steps}}" as="s" hint-placeholder-count="4">
-            <div style="flex:1 1 110px;display:flex;flex-direction:column;gap:8px">
-              <div style="height:8px;border-radius:2px;background:{{s.bg}}"></div>
-              <div style="font-size:11px;font-weight:{{s.fw}};color:{{s.fg}}">{{s.t}}</div>
-            </div>
-          </sc-for>
-        </div>
-
-        <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:center">
-          <div style="flex:0 0 220px;text-align:center">
-            <svg viewBox="0 0 200 124" style="width:220px;height:auto" role="img" aria-label="이탈 위험 지수 72점">
-              <path d="M20 100 A80 80 0 0 1 180 100" fill="none" stroke="#DEE3EE" stroke-width="16" stroke-linecap="round"/>
-              <path d="M20 100 A80 80 0 0 1 180 100" fill="none" stroke="#D4573E" stroke-width="16" stroke-linecap="round" stroke-dasharray="181 251.3"/>
-              <text x="100" y="92" text-anchor="middle" font-size="40" font-weight="800" fill="#0E1A33" font-family="NanumSquare, Noto Sans KR, sans-serif">72</text>
-              <text x="100" y="114" text-anchor="middle" font-size="12" fill="#5C6683" font-family="NanumSquare, Noto Sans KR, sans-serif">이탈 위험 지수</text>
-            </svg>
-          </div>
-          <div style="flex:1 1 280px;display:flex;flex-direction:column;gap:12px">
-            <div class="lab" style="margin:0">위험 지수를 올린 근거</div>
-            <sc-for list="{{reasons}}" as="r" hint-placeholder-count="4">
-              <div style="display:flex;align-items:center;gap:12px;background:#fff;border-radius:2px;padding:12px 14px">
-                <span style="flex:none;width:34px;text-align:center;font-weight:700;font-size:11px;color:#B8452F">{{r.pt}}</span>
-                <div style="flex:1;font-size:11px;font-weight:700;line-height:1.4">{{r.t}}</div>
-              </div>
-            </sc-for>
-          </div>
-        </div>
-
-        <div>
-          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px"><div class="lab" style="margin:0">Smile Plan 열람 · 상담일부터 매일</div><span class="sub" style="font-size:11px">회색 점선 = 골든타임 D+7~14</span></div>
-          <div style="display:flex;gap:6px">
-            <sc-for list="{{days}}" as="d" hint-placeholder-count="13">
-              <div style="flex:1 1 0;min-width:0;text-align:center">
-                <div style="height:44px;border-radius:2px;background:{{d.bg}};border:{{d.bd}};color:{{d.fg}};font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">{{d.n}}</div>
-                <div style="font-size:10px;color:#5C6683;margin-top:6px">{{d.l}}</div>
-              </div>
-            </sc-for>
-          </div>
+    <div class="cols">
+      <div class="grp" style="flex:1.2 1 400px">
+        <div class="gh2"><div class="t"><span>위험 지수를 올린 근거</span></div></div>
+        <div class="tbl">
+          <div class="tr th c3" style="min-width:0"><span>가산점</span><span>근거</span></div>
+          <sc-for list="{{reasons}}" as="r" hint-placeholder-count="4"><div class="tr c3" style="min-width:0"><span><span class="pill p-high">{{r.pt}}</span></span><span>{{r.t}}</span></div></sc-for>
         </div>
       </div>
+      <div class="grp" style="flex:1 1 340px">
+        <div class="gh2"><div class="t"><span>다음 행동 제안</span><span class="cnt">직원 승인 후 발송</span></div></div>
+        <div class="box" style="background:#14213D;color:#fff;border-color:#14213D">
+          <div style="font-size:14px;line-height:1.5">타병원 비교에 쓸 체크리스트와 삭제량 리포트를 보내요</div>
+          <div style="margin-top:12px;background:rgba(255,255,255,.1);border-radius:8px;padding:12px 14px;font-size:11px;line-height:1.7">&quot;안녕하세요, APRO입니다. 상담 때 말씀하신 상악 8개 올세라믹 설계 내용을 정리해 드려요. 다른 병원과 비교하실 때 참고하실 질문 목록도 함께 담았습니다.&quot;</div>
+          <div style="display:flex;gap:6px;margin-top:12px;flex-wrap:wrap"><span class="pill" style="background:rgba(255,255,255,.14)">열람 사실 언급 없음</span><span class="pill" style="background:rgba(255,255,255,.14)">시술명 숨김 알림톡</span></div>
+        </div>
+      </div>
+    </div>
 
-      <!-- Briefing -->
-      <div style="flex:1 1 380px;display:flex;flex-direction:column;gap:24px">
-        <div style="position:relative;overflow:hidden;border-radius:2px;background:#0E1A33;color:#fff;padding:26px">
-          <div style="position:relative">
-            <div style="font-size:11px;opacity:.8">다음 행동 제안 · 직원 승인 후 발송</div>
-            <div style="font-size:18px;font-weight:700;margin-top:6px;line-height:1.35;letter-spacing:-.07em">타병원 비교에 쓸 체크리스트와 삭제량 리포트를 보내요</div>
-            <div style="margin-top:16px;background:rgba(255,255,255,.12);border-radius:2px;padding:14px 16px;font-size:11px;line-height:1.6;opacity:.95">&quot;안녕하세요, APRO입니다. 상담 때 말씀하신 상악 8개 올세라믹 설계 내용을 정리해 드려요. 다른 병원과 비교하실 때 참고하실 질문 목록도 함께 담았습니다.&quot;</div>
-            <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap"><span class="chip" style="background:rgba(255,255,255,.16);color:#fff">열람 사실 언급 없음</span><span class="chip" style="background:rgba(255,255,255,.16);color:#fff">시술명 숨김 알림톡</span></div>
+    <div class="cols">
+      <div class="grp" style="flex:1 1 360px">
+        <div class="gh2"><div class="t"><span>상담 전 브리핑</span></div></div>
+        <div class="tbl">
+          <sc-for list="{{brief}}" as="b" hint-placeholder-count="5"><div class="tr c3" style="min-width:0;--cols:.7fr 2fr"><span class="mu">{{b.k}}</span><span>{{b.v}}</span></div></sc-for>
+        </div>
+      </div>
+      <div class="grp" style="flex:1 1 360px">
+        <div class="gh2"><div class="t"><span>심미 취향 카드</span></div><span class="mu" style="font-size:11px">설문 · 이미지 테스트</span></div>
+        <div class="box">
+          <div class="mu" style="font-size:11px;margin-bottom:8px">선호 색상</div>
+          <div style="display:flex;gap:10px">
+            <sc-for list="{{shades}}" as="s" hint-placeholder-count="4"><div style="text-align:center"><div style="width:38px;height:46px;border-radius:16px 16px 12px 12px;background:{{s.bg}};border:{{s.bd}}"></div><div style="font-size:10px;margin-top:6px;color:{{s.fg}}">{{s.t}}</div></div></sc-for>
           </div>
-        </div>
-        <div class="card">
-          <h2 class="h2" style="font-size:16px">상담 전 브리핑 카드</h2>
-          <div style="display:flex;flex-direction:column;gap:12px;margin-top:14px">
-            <sc-for list="{{brief}}" as="b" hint-placeholder-count="5">
-              <div style="display:flex;gap:12px;align-items:flex-start"><div style="flex:0 0 76px;font-size:11px;font-weight:700;color:#5C6683;padding-top:2px">{{b.k}}</div><div style="flex:1;font-size:11px;font-weight:700;line-height:1.5">{{b.v}}</div></div>
-            </sc-for>
+          <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:16px">
+            <div><div class="mu" style="font-size:11px;margin-bottom:6px">선호 형태</div><span class="pill p-low">자연스러운 곡선</span></div>
+            <div><div class="mu" style="font-size:11px;margin-bottom:6px">변화 정도</div><span class="pill p-wait">2 / 5 · 자연스럽게</span></div>
           </div>
+          <div style="margin-top:16px"><div class="mu" style="font-size:11px;margin-bottom:6px">피하고 싶은 느낌</div><div style="display:flex;gap:6px;flex-wrap:wrap"><span class="chipx hot">인위적으로 하얀</span><span class="chipx hot">너무 큰 치아</span><span class="chipx hot">일자 배열</span></div></div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section style="display:flex;flex-wrap:wrap;gap:24px;align-items:stretch">
-
-      <!-- Taste card -->
-      <div class="card" style="flex:1 1 400px">
-        <div style="display:flex;justify-content:space-between;align-items:baseline"><h2 class="h2">심미 취향 카드</h2><span class="sub">설문 · 이미지 테스트</span></div>
-        <div style="margin-top:18px">
-          <div class="lab">선호 색상</div>
-          <div style="display:flex;gap:12px">
-            <sc-for list="{{shades}}" as="s" hint-placeholder-count="4">
-              <div style="text-align:center"><div style="width:52px;height:64px;border-radius:22px 22px 18px 18px;background:{{s.bg}};border:{{s.bd}}"></div><div style="font-size:10px;margin-top:6px;font-weight:{{s.fw}};color:{{s.fg}}">{{s.t}}</div></div>
-            </sc-for>
-          </div>
-        </div>
-        <div style="margin-top:20px;display:flex;gap:24px;flex-wrap:wrap">
-          <div><div class="lab">선호 형태</div><span class="chip blue">자연스러운 곡선</span></div>
-          <div style="flex:1 1 160px"><div class="lab">변화 정도</div>
-            <div style="display:flex;gap:6px;align-items:center"><sc-for list="{{scale}}" as="x" hint-placeholder-count="5"><span style="width:26px;height:10px;border-radius:2px;background:{{x.bg}}"></span></sc-for><span class="sub" style="font-size:11px;margin-left:6px">2 / 5 · 자연스럽게</span></div></div>
-        </div>
-        <div style="margin-top:20px"><div class="lab">피하고 싶은 느낌</div><div style="display:flex;gap:8px;flex-wrap:wrap"><span class="chip coral">인위적으로 하얀</span><span class="chip coral">너무 큰 치아</span><span class="chip coral">일자 배열</span></div></div>
-        <div style="margin-top:20px"><div class="lab">레퍼런스</div>
-          <div style="display:flex;gap:10px"><sc-for list="{{refs}}" as="x" hint-placeholder-count="3"><div style="flex:1;height:74px;border-radius:2px;background:{{x.bg}};display:flex;align-items:flex-end;padding:8px"><svg viewBox="0 0 60 24" width="44" height="18" aria-hidden="true"><path d="M2 6c4 16 52 16 56 0" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-opacity=".85"/></svg></div></sc-for></div></div>
+    <div class="grp">
+      <div class="gh2"><div class="t"><span>접점 타임라인</span><span class="cnt">7</span></div></div>
+      <div class="tbl">
+        <div class="tr th c2"><span>날짜</span><span>이벤트</span><span>비고</span></div>
+        <sc-for list="{{timeline}}" as="t" hint-placeholder-count="7"><div class="{{t.cls}}"><span class="mu">{{t.d}}</span><span>{{t.t}}</span><span class="mu">{{t.s}}</span></div></sc-for>
       </div>
+    </div>
 
-      <!-- Survey -->
-      <div class="card" style="flex:1 1 360px">
-        <div style="display:flex;justify-content:space-between;align-items:baseline"><h2 class="h2">설문 응답 요약</h2><span class="sub">10월 28일 · 모바일</span></div>
-        <div style="margin-top:16px;display:flex;flex-direction:column;gap:16px">
-          <div><div class="lab">개선하고 싶은 부위 · <span style="color:#B8452F">1순위 표시</span></div><div style="display:flex;gap:8px;flex-wrap:wrap"><span class="chip solid">치아 변색·누런 치아</span><span class="chip mist">벌어진 앞니</span><span class="chip mist">치아 크기·모양</span></div></div>
-          <div><div class="lab">희망 치아 수</div><div style="font-size:12px;font-weight:700">윗니 8개 · 아랫니 상담 후 결정</div></div>
-          <div><div class="lab">불편함</div><div style="display:flex;gap:8px;flex-wrap:wrap"><span class="chip mist">시린 증상</span><span class="chip mist">기존 보철물 탈락</span></div></div>
-          <div><div class="lab">습관</div><div style="display:flex;gap:8px;flex-wrap:wrap"><span class="chip coral">이갈이</span><span class="chip coral">이 악물기</span></div></div>
-          <div><div class="lab">병원 선택 기준 · 비교 현황</div><div style="display:flex;gap:8px;flex-wrap:wrap"><span class="chip blue">1순위 경험</span><span class="chip blue">2순위 사후관리</span><span class="chip mist">타병원 3곳 상담</span></div></div>
-          <div><div class="lab">희망 시기</div><div style="font-size:12px;font-weight:700">3개월 이내 · 행사 일정 없음</div></div>
-        </div>
-        <div style="margin-top:18px;padding:14px 16px;border-radius:2px;background:var(--coraltint);color:var(--coral);font-size:11px;font-weight:700;line-height:1.5">위험 플래그 · 이갈이 + 올세라믹 8개 → 재료·나이트가드 상담을 먼저 준비하세요.</div>
+    <div class="grp">
+      <div class="gh2"><div class="t"><span>설문 응답 요약</span></div><span class="mu" style="font-size:11px">10월 28일 · 모바일</span></div>
+      <div class="tbl">
+        <sc-for list="{{survey}}" as="s" hint-placeholder-count="6"><div class="tr" style="min-width:0;--cols:.8fr 2.4fr"><span class="mu">{{s.k}}</span><span>{{s.v}}</span></div></sc-for>
       </div>
-
-      <!-- Timeline -->
-      <div class="card" style="flex:1 1 360px">
-        <div style="display:flex;justify-content:space-between;align-items:baseline"><h2 class="h2">접점 타임라인</h2><span class="sub">유입부터 현재까지</span></div>
-        <div style="margin-top:18px;display:flex;flex-direction:column">
-          <sc-for list="{{timeline}}" as="t" hint-placeholder-count="7">
-            <div style="display:flex;gap:14px">
-              <div style="display:flex;flex-direction:column;align-items:center"><span style="width:12px;height:12px;border-radius:50%;background:{{t.c}};margin-top:4px"></span><span style="flex:1;width:2px;background:#DCE1EC;min-height:26px"></span></div>
-              <div style="padding-bottom:16px;flex:1"><div style="display:flex;justify-content:space-between;gap:8px"><span style="font-size:11px;font-weight:700;line-height:1.4">{{t.t}}</span><span class="sub" style="font-size:11px;white-space:nowrap">{{t.d}}</span></div><div class="sub" style="font-size:11px;margin-top:2px">{{t.s}}</div></div>
-            </div>
-          </sc-for>
-        </div>
-      </div>
-    </section>
-
-    <div style="display:flex;justify-content:space-between;align-items:center;padding:0 4px 8px;flex-wrap:wrap;gap:8px"><span class="sub" style="font-size:11px">표시된 환자명·수치는 디자인용 샘플 데이터입니다.</span><span class="hand" style="font-size:21px;color:var(--navy2);transform:rotate(-2deg)">Small steps, big results</span></div>
+      <div class="note" style="color:#B8452F">위험 플래그 · 이갈이 + 올세라믹 8개 → 재료·나이트가드 상담을 먼저 준비하세요.</div>
+    </div>
+    <div class="note">표시된 환자명·수치는 디자인용 샘플 데이터입니다.</div>
   </main>
-</div>
+</div></div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1500}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1900}}'>
 class Component extends DCLogic {
-  renderVals() {
-    const nav = [
-      { label: '홈', d: 'M3 11l9-8 9 8v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z', cls: 'nav', href: 'Main.dc.html' },
-      { label: '환자 여정', d: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8', cls: 'nav on', href: 'Patient.dc.html' },
-      { label: '이탈 분석', d: 'M22 17l-8.5-8.5-5 5L2 7M16 17h6v-6', cls: 'nav', href: 'Churn.dc.html' },
-      { label: '케이스 원장', d: 'M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM8.5 10a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM21 15l-5-5L5 21', cls: 'nav', href: 'Ledger.dc.html' },
-      { label: '채널 트래킹', d: 'M3 3v18h18M7 16v-5M12 16V7M17 16v-3', cls: 'nav', href: 'Main.dc.html' },
-      { label: '설문 · Smile Plan', d: 'M22 2L11 13M22 2l-7 20-4-9-9-4z', cls: 'nav', href: 'Survey.dc.html' }
+  sideData(active) {
+    const items = [
+      ['홈', 'M3 11l9-8 9 8v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z', 'Main.dc.html'],
+      ['환자 여정', 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8', 'Patient.dc.html'],
+      ['이탈 분석', 'M22 17l-8.5-8.5-5 5L2 7M16 17h6v-6', 'Churn.dc.html'],
+      ['케이스 원장', 'M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM8.5 10a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM21 15l-5-5L5 21', 'Ledger.dc.html'],
+      ['채널 트래킹', 'M3 3v18h18M7 16v-5M12 16V7M17 16v-3', 'Main.dc.html'],
+      ['설문 · Smile Plan', 'M22 2L11 13M22 2l-7 20-4-9-9-4z', 'Survey.dc.html']
     ];
+    return {
+      nav: items.map(([label, d, href]) => ({ label, d, href, cls: href === active ? 'ni on' : 'ni' })),
+      lines: [{ t: '라미네이트', c: '#3E62A8' }, { t: '올세라믹', c: '#E58A2D' }, { t: '재시술', c: '#D4573E' }, { t: '잇몸성형 병행', c: '#14213D' }],
+      ints: [
+        { t: '네이버 예약', d: 'M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z' },
+        { t: '카카오 채널', d: 'M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z' },
+        { t: '추적 전화번호', d: 'M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z' }
+      ]
+    };
+  }
+
+  renderVals() {
     const steps = [
-      { t: '탐색', bg: '#16264A', fg: '#5C6683', fw: 400 },
-      { t: '비교 (현재)', bg: '#D4573E', fg: '#B8452F', fw: 700 },
-      { t: '검증', bg: '#DEE3EE', fg: '#5C6683', fw: 400 },
-      { t: '결정', bg: '#DEE3EE', fg: '#5C6683', fw: 400 }
+      { t: '탐색', bg: '#14213D', fg: '#80807A' },
+      { t: '비교 (현재)', bg: '#D4573E', fg: '#B8452F' },
+      { t: '검증', bg: '#E8E8E3', fg: '#80807A' },
+      { t: '결정', bg: '#E8E8E3', fg: '#80807A' }
     ];
     const reasons = [
       { pt: '+30', t: '상담 후 12일째 Smile Plan 열람이 없어요' },
-      { pt: '+22', t: '타병원 3곳 상담, 1순위 기준이 "경험"이에요' },
+      { pt: '+22', t: '타병원 3곳 상담, 1순위 기준이 경험이에요' },
       { pt: '+12', t: '메시지를 읽고 답이 없었어요 (D+6)' },
       { pt: '+8', t: '견적 재요청이 없어요' }
     ];
     const hits = [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     const days = hits.map((v, i) => {
-      const gold = i >= 7 && i <= 12;
-      return {
-        n: v === 0 ? '' : String(v),
-        l: 'D+' + i,
-        bg: v > 0 ? '#2F4D8C' : (gold ? '#F7E4DE' : '#E4E8F1'),
-        fg: '#fff',
-        bd: v > 0 ? '0' : (gold ? '1.5px dashed #D4573E' : '0')
-      };
+      const gold = i >= 7;
+      return { n: v === 0 ? '' : String(v), l: 'D+' + i, bg: v > 0 ? '#14213D' : (gold ? '#FBF1EE' : '#F0F0EC'), bd: v > 0 ? '0' : (gold ? '1px dashed #D4573E' : '0') };
     });
     const brief = [
       { k: '유입', v: '블로그 케이스글 열람 4회 → 네이버 예약' },
@@ -251,23 +276,30 @@ class Component extends DCLogic {
       { k: '주의', v: '비교 쇼퍼 유형 · 압박 문구 금지' }
     ];
     const shades = [
-      { t: '자연', bg: '#F3E6C9', fg: '#5C6683', fw: 400, bd: '2px solid transparent' },
-      { t: '한 톤 밝게', bg: '#F6EEDC', fg: '#0E1A33', fw: 700, bd: '2px solid #16264A' },
-      { t: '화사한', bg: '#F4F5F7', fg: '#5C6683', fw: 400, bd: '2px solid transparent' },
-      { t: '매우 밝은', bg: '#FFFFFF', fg: '#5C6683', fw: 400, bd: '2px solid #E2E6EF' }
+      { t: '자연', bg: '#F3E6C9', fg: '#80807A', bd: '2px solid transparent' },
+      { t: '한 톤 밝게', bg: '#F6EEDC', fg: '#16181D', bd: '2px solid #14213D' },
+      { t: '화사한', bg: '#F4F5F7', fg: '#80807A', bd: '2px solid transparent' },
+      { t: '매우 밝은', bg: '#FFFFFF', fg: '#80807A', bd: '2px solid #E7E7E2' }
     ];
-    const scale = [1, 2, 3, 4, 5].map((i) => ({ bg: i <= 2 ? '#16264A' : '#DEE3EE' }));
-    const refs = [{ bg: '#C5D3EE' }, { bg: '#D5DDEE' }, { bg: '#B9C6E2' }];
+    const tl = (d, t, s, hot) => ({ d, t, s, cls: hot ? 'tr c2 hot' : 'tr c2' });
     const timeline = [
-      { t: '블로그 케이스글 열람', s: '올세라믹 vs 라미네이트 · 4회', d: '10/09', c: '#2F5FD0' },
-      { t: '네이버 예약', s: '추적 링크 · 심미 상담', d: '10/21', c: '#2F5FD0' },
-      { t: '사전 설문 완료', s: '2분 · 모바일', d: '10/27', c: '#2F5FD0' },
-      { t: '내원 상담 · 견적 제시', s: '유사 케이스 열람 · 원장 상담', d: '10/28', c: '#16264A' },
-      { t: 'Smile Plan 전송 · 열람 2회', s: '유사 케이스 섹션 체류', d: '10/28', c: '#2F5FD0' },
-      { t: '메시지 확인, 답장 없음', s: 'D+6 안부 메시지', d: '11/03', c: '#9AA3BA' },
-      { t: '열람 없음 12일째', s: '이탈 위험 단계로 전환', d: '11/09', c: '#D4573E' }
+      tl('10/09', '블로그 케이스글 열람', '올세라믹 vs 라미네이트 · 4회'),
+      tl('10/21', '네이버 예약', '추적 링크 · 심미 상담'),
+      tl('10/27', '사전 설문 완료', '2분 · 모바일'),
+      tl('10/28', '내원 상담 · 견적 제시', '유사 케이스 열람 · 원장 상담'),
+      tl('10/28', 'Smile Plan 전송 · 열람 2회', '유사 케이스 섹션 체류'),
+      tl('11/03', '메시지 확인, 답장 없음', 'D+6 안부 메시지'),
+      tl('11/09', '열람 없음 12일째', '이탈 위험 단계로 전환', true)
     ];
-    return { nav, steps, reasons, days, brief, shades, scale, refs, timeline };
+    const survey = [
+      { k: '개선 부위', v: '치아 변색·누런 치아 (1순위) · 벌어진 앞니 · 치아 크기·모양' },
+      { k: '희망 치아 수', v: '윗니 8개 · 아랫니 상담 후 결정' },
+      { k: '불편함', v: '시린 증상 · 기존 보철물 탈락' },
+      { k: '습관', v: '이갈이 · 이 악물기' },
+      { k: '선택 기준', v: '1순위 경험 · 2순위 사후관리 · 타병원 3곳 상담' },
+      { k: '희망 시기', v: '3개월 이내 · 행사 일정 없음' }
+    ];
+    return Object.assign({}, this.sideData('Patient.dc.html'), { steps, reasons, days, brief, shades, timeline, survey });
   }
 }
 </script>

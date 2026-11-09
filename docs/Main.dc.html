@@ -2,8 +2,8 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<title>홈 컨트롤 센터</title>
-<script src="./dc-lite.js?v=2"></script>
+<title>홈</title>
+<script src="./dc-lite.js?v=202611091631"></script>
 </head>
 <body>
 <x-dc>
@@ -12,276 +12,263 @@
 <style>
 body{margin:0}
 a{color:inherit;text-decoration:none}
-.app{--ink:#0E1A33;--navy:#16264A;--navy2:#2A4378;--mist:#DCE3F0;--line:#E2E6EF;--card:#FFFFFF;--bg:#F5F5F2;--muted:#5C6683;--coral:#B8452F;--coral2:#D4573E;--coraltint:#FBF1EE;--blue:#2F5FD0;background:var(--bg);color:var(--ink);font-family:'NanumSquare','Nanum Square','Noto Sans KR',sans-serif;box-sizing:border-box;min-height:100%}
+.app{--ink:#16181D;--navy:#14213D;--navy2:#2A4378;--muted:#80807A;--line:#E7E7E2;--panel:#F5F5F2;--coral:#B8452F;background:#DEDDD7;padding:28px;font-family:'NanumSquare','Nanum Square','Noto Sans KR',sans-serif;font-size:12px;letter-spacing:-.07em;color:var(--ink);box-sizing:border-box;min-height:100%}
 .app *{box-sizing:border-box}
-.card{background:var(--card);border-radius:2px;padding:24px;}
-.h2{font-size:16px;font-weight:700;margin:0;letter-spacing:-.07em}
-.sub{font-size:11px;color:var(--muted)}
-.chip{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;padding:5px 10px;border-radius:2px;white-space:nowrap}
-.chip.blue{background:#DDE6FA;color:#1F46A8}
-.chip.coral{background:var(--coraltint);color:var(--coral)}
-.chip.mist{background:var(--mist);color:#2A3A63}
-.chip.solid{background:var(--coral);color:#fff}
-.bar{height:6px;border-radius:2px;background:#DEE3EE;overflow:hidden}
-.bar>i{display:block;height:100%;border-radius:2px;background:var(--navy)}
-.bar.risk>i{background:var(--coral2)}
-.hand{font-family:inherit;font-size:10px!important;color:#7A8299!important;transform:none!important;line-height:1.5!important;font-weight:400!important}
-.nav{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:2px;color:var(--muted);font-size:12px;font-weight:400}
-.nav:hover{background:#E8ECF5}
-.nav.on{background:var(--navy);color:#fff}
-.ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
-.row{display:flex;align-items:center}
-.pcard{flex:0 0 268px;background:#fff;border-radius:2px;overflow:hidden;border:1px solid #EDF0F6}
-.pcard.risk{border:1px solid #E4B8AD}
-.task{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
-.task:last-child{border-bottom:0}
-.dot{width:8px;height:8px;border-radius:50%;background:var(--blue);display:inline-block}
-.fab{width:56px;height:56px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;}
-.app,.sv{letter-spacing:-.07em}
-.app button,.sv button{letter-spacing:-.07em;font-family:inherit}
-.app .card,.sv .card{border:1px solid #E6E6E0}
-.app .chip{padding:3px 8px;font-weight:400;border:1px solid transparent;background:transparent;border-radius:2px}
-.app .chip.blue{background:#EEF1F7;color:#1E3A6E}
-.app .chip.coral{background:transparent;border-color:#E4B8AD;color:#B8452F}
-.app .chip.mist{background:#F0F0EC;color:#3A4560}
-.app .chip.solid{background:#B8452F;color:#fff;border-color:#B8452F}
-.app .chip.dark{background:#0E1A33;color:#fff}
-.app .bar{height:3px;border-radius:0}
-.app .bar>i{border-radius:0}
-.app h1{font-weight:300}
-.sv .opt{border-radius:2px}</style>
-</helmet>
-<div class="app" style="display:flex;flex-wrap:wrap;gap:24px;padding:24px;align-items:flex-start">
+.app button{letter-spacing:-.07em;font-family:inherit}
+.frame{background:#ECECE8;border-radius:20px;padding:12px;display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start;max-width:1440px;margin:0 auto}
+.mu{color:var(--muted)}
+.ic{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+/* sidebar */
+.side{flex:0 0 232px;display:flex;flex-direction:column;gap:4px;padding:2px}
+.prof{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px;display:flex;gap:10px;align-items:center;margin-bottom:10px}
+.lg{width:32px;height:32px;border-radius:8px;background:var(--navy);display:flex;align-items:center;justify-content:center;flex:none}
+.srch{background:#E1E1DC;border-radius:8px;height:34px;display:flex;align-items:center;gap:8px;padding:0 10px;color:var(--muted);margin-bottom:10px}
+.lbl{font-size:11px;margin:6px 4px 4px}
+.ni{display:flex;align-items:center;gap:10px;height:34px;padding:0 10px;border-radius:8px;color:#3C3C38;border:1px solid transparent}
+.ni:hover{background:#E6E6E1}
+.ni.on{background:#fff;border-color:var(--line);color:var(--ink)}
+.sq{width:16px;height:16px;border-radius:5px;flex:none}
+.sep{height:1px;background:var(--line);margin:8px 4px}
+.gh{display:flex;align-items:center;gap:8px;height:30px;padding:0 6px;color:#3C3C38}
+/* panel */
+.panel{flex:1 1 640px;min-width:0;background:#fff;border:1px solid #E4E4DF;border-radius:12px;padding:22px 26px 30px}
+.crumb{font-size:12px;color:var(--muted)}
+.ttl{margin:6px 0 0;font-size:39px;font-weight:300;line-height:1.1}
+.btn{display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 12px;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:12px;color:var(--ink);cursor:pointer}
+.btn.dark{background:var(--navy);color:#fff;border-color:var(--navy)}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;border-bottom:1px solid var(--line);margin-top:22px}
+.tab{display:flex;gap:8px;align-items:center;height:38px;padding:0 10px;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab.on{color:var(--ink);border-bottom-color:var(--ink)}
+.sec{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;margin:22px 0 14px}
+.sec h2{font-size:17px;font-weight:400;margin:0}
+.sbox{display:flex;align-items:center;gap:8px;height:34px;width:240px;border:1px solid var(--line);border-radius:8px;padding:0 10px;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:14px}
+.stat{padding:16px 18px;border-left:1px solid var(--line);min-width:0}
+.stat:first-child{border-left:0}
+.stat .k{font-size:11px;color:var(--muted)}
+.stat .v{font-size:28px;font-weight:300;margin-top:6px;line-height:1.1}
+.stat .d{font-size:11px;color:var(--muted);margin-top:6px}
+.stat.hot{background:#FBF1EE}
+.stat.hot .k,.stat.hot .v,.stat.hot .d{color:var(--coral)}
+/* groups & tables */
+.grp{background:var(--panel);border:1px solid #EFEFEA;border-radius:12px;padding:10px;margin-bottom:14px;min-width:0}
+.gh2{display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center;padding:4px 4px 10px 8px}
+.gh2 .t{display:flex;align-items:center;gap:10px;font-size:14px}
+.cnt{display:inline-flex;align-items:center;gap:5px;background:#fff;border-radius:99px;padding:3px 9px;font-size:11px;color:#4A4A45}
+.tbl{background:#fff;border:1px solid #E9E9E4;border-radius:10px;overflow-x:auto}
+.tr{display:grid;grid-template-columns:var(--cols);align-items:center;gap:12px;padding:0 16px;min-height:38px;border-top:1px solid #EFEFEA;min-width:620px}
+.tr:first-child{border-top:0}
+.th{min-height:40px;color:#2B2B28}
+.tr.hot{background:#FDF7F5}
+.box{background:#fff;border:1px solid #E9E9E4;border-radius:10px;padding:16px 18px;min-width:0}
+.cols{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start}
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:11px;padding:2px 9px;border-radius:99px;white-space:nowrap}
+.p-high{background:#FBE7E3;color:#B8452F}
+.p-med{background:#FBF0D8;color:#97690F}
+.p-low{background:#E9EDF6;color:#3A4F85}
+.p-done{background:#E3F1EA;color:#2E7D5B}
+.p-wait{background:#F0F0EC;color:#5A5A55}
+.type{display:inline-flex;align-items:center;gap:5px;border:1px solid #E4E4DF;background:#F8F8F5;color:#4A4A45;border-radius:99px;padding:2px 9px;font-size:11px;white-space:nowrap}
+.pg{display:flex;align-items:center;gap:8px;font-size:11px}
+.pg b{font-weight:400;width:28px}
+.pg i{display:block;width:52px;height:4px;border-radius:9px;background:#E8E8E3;overflow:hidden}
+.pg i span{display:block;height:100%;border-radius:9px}
+.who{display:flex;align-items:center;gap:8px;min-width:0}
+.av0{flex:none;width:22px;height:22px;border-radius:50%;background:#E4E8F2;color:#14213D;font-size:10px;display:inline-flex;align-items:center;justify-content:center}
+.hb{height:4px;border-radius:9px;background:#EAEAE5;overflow:hidden}
+.hb i{display:block;height:100%;border-radius:9px;background:var(--navy)}
+.hb.hot i{background:#D4573E}
+.note{font-size:11px;color:var(--muted);margin:10px 4px 0}
+.chipx{display:inline-flex;font-size:11px;padding:2px 9px;border-radius:99px;border:1px solid #E4E4DF;background:#fff;white-space:nowrap}
+.chipx.hot{border-color:#E4B8AD;color:#B8452F;background:#FDF7F5}
+</style>
 
-  <!-- Sidebar -->
-  <aside class="card" style="flex:0 0 232px;display:flex;flex-direction:column;gap:6px;padding:20px 16px;min-height:900px;justify-content:space-between">
-    <div style="display:flex;flex-direction:column;gap:6px">
-      <div style="display:flex;align-items:center;gap:10px;padding:6px 12px 22px">
-        <div style="width:34px;height:34px;border-radius:2px;background:var(--navy);display:flex;align-items:center;justify-content:center">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 10c2 6 14 6 16 0"/><path d="M8 13v2M12 14v2M16 13v2"/></svg>
-        </div>
-        <div style="display:flex;flex-direction:column;line-height:1.1"><span style="font-weight:700;letter-spacing:-.07em;font-size:11px">APRO</span><span class="sub" style="font-size:10px">Aesthetic CRM</span></div>
-      </div>
-      <sc-for list="{{nav}}" as="n" hint-placeholder-count="6">
-        <a class="{{n.cls}}" href="{{n.href}}"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="{{n.d}}"/></svg><span>{{n.label}}</span></a>
-      </sc-for>
+<style>
+.c1{--cols:1.5fr 1.5fr 1fr .7fr .9fr 1.1fr}
+.c2{--cols:1.2fr .6fr 1fr .7fr 1.6fr}
+.c3{--cols:1.4fr .6fr .6fr 1.4fr}
+.c4{--cols:1.5fr .7fr .7fr .9fr}
+.c5{--cols:1.6fr 1fr 1fr .7fr .8fr}
+</style>
+</helmet>
+<div class="app"><div class="frame">
+  <aside class="side">
+    <div class="prof">
+      <div class="lg"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 10c2 6 14 6 16 0"/><path d="M8 13v2M12 14v2M16 13v2"/></svg></div>
+      <div style="flex:1;min-width:0;line-height:1.35"><div style="font-size:12px">김지윤</div><div class="mu" style="font-size:10px">APRO 치과 · 상담실장</div></div>
+      <svg class="ic mu" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3zM9 5v14"/></svg>
     </div>
-    <div style="display:flex;flex-direction:column;gap:14px">
-      <div class="hand" style="font-size:23px;line-height:1;color:var(--navy2);transform:rotate(-4deg);padding:0 12px">어제보다<br>한 걸음 더</div>
-      <div style="display:flex;align-items:center;gap:12px;background:#fff;border-radius:2px;padding:10px 12px">
-        <div style="width:38px;height:38px;border-radius:50%;background:var(--navy2);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px">김</div>
-        <div style="display:flex;flex-direction:column;line-height:1.25"><span style="font-size:12px;font-weight:700">김지윤</span><span class="sub" style="font-size:11px">상담실장</span></div>
-      </div>
-    </div>
+    <div class="srch"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 21l-4.3-4.3M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16z"/></svg><span style="flex:1">검색</span><span style="font-size:10px">⌘F</span></div>
+    <div class="lbl">주요 메뉴</div>
+    <sc-for list="{{nav}}" as="n" hint-placeholder-count="6">
+      <a class="{{n.cls}}" href="{{n.href}}"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="{{n.d}}"/></svg><span>{{n.label}}</span></a>
+    </sc-for>
+    <div class="sep"></div>
+    <div class="gh"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg><span style="flex:1">시술 라인</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></div>
+    <sc-for list="{{lines}}" as="l" hint-placeholder-count="4">
+      <div class="ni"><span class="sq" style="background:{{l.c}}"></span><span>{{l.t}}</span></div>
+    </sc-for>
+    <div class="sep"></div>
+    <div class="gh"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg><span style="flex:1;color:var(--muted)">관리</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></div>
+    <div class="sep"></div>
+    <div class="gh"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg><span style="flex:1">연동</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></div>
+    <sc-for list="{{ints}}" as="l" hint-placeholder-count="3">
+      <div class="ni"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="{{l.d}}"/></svg><span>{{l.t}}</span></div>
+    </sc-for>
+    <div class="sep"></div>
+    <div class="gh"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg><span style="flex:1">설정</span></div>
+    <div class="ni"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0M14 4v4M8 10v4M16 16v4"/></svg><span>환경 설정</span></div>
+    <div class="ni"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>동의 관리</span></div>
   </aside>
 
-  <!-- Main -->
-  <main style="flex:999 1 640px;min-width:0;display:flex;flex-direction:column;gap:24px">
-
-    <!-- Header -->
-    <header style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-end;padding:8px 4px 0">
-      <div>
-        <div class="hand" style="font-size:25px;color:var(--navy2);transform:rotate(-2deg);display:inline-block">한 걸음씩, 확실하게</div>
-        <div style="font-size:18px;color:var(--muted);margin-top:4px">좋은 아침이에요,</div>
-        <h1 style="margin:0;font-size:39px;font-weight:300;letter-spacing:-.07em;line-height:1.1">김지윤 실장님</h1>
-        <div class="sub" style="margin-top:8px;font-size:12px">오늘 연락할 환자 <b style="color:var(--ink)">4명</b> · 이탈 위험 <b style="color:var(--coral)">3명</b>이 먼저 확인을 기다려요.</div>
+  <main class="panel">
+    <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-end">
+      <div><div class="crumb">APRO 심미 CRM</div><h1 class="ttl">홈</h1></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a class="btn dark" href="Patient.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM19 8v6M22 11h-6"/></svg>새 환자 등록</a>
+        <a class="btn" href="Survey.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>설문 링크 보내기</a>
+        <a class="btn" href="Ledger.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM8.5 10a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM21 15l-5-5L5 21"/></svg>케이스 추가</a>
       </div>
-      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
-        <span class="chip mist" style="padding:8px 14px"><span class="dot"></span>실시간 연결 · 09:41 갱신</span>
-        <button aria-label="알림" style="position:relative;width:48px;height:48px;border-radius:50%;border:0;background:var(--card);color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg><span style="position:absolute;top:11px;right:12px;width:9px;height:9px;border-radius:50%;background:var(--coral2);border:2px solid var(--card)"></span></button>
-        <button style="height:48px;border-radius:2px;border:0;background:var(--navy);color:#fff;padding:0 22px 0 16px;font:600 12px 'NanumSquare','Nanum Square','Noto Sans KR',sans-serif;display:flex;align-items:center;gap:8px;cursor:pointer"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>새 상담 등록</button>
-      </div>
-    </header>
+    </div>
 
-    <!-- Hero + KPI -->
-    <section style="display:flex;flex-wrap:wrap;gap:24px">
-      <div style="flex:1 1 380px;position:relative;overflow:hidden;border-radius:2px;background:#0E1A33;color:#fff;padding:28px;min-height:280px;display:flex;flex-direction:column;justify-content:space-between">
-        <div style="position:relative">
-          <div style="font-size:12px;opacity:.8">이번 주 결정</div>
-          <div style="display:flex;align-items:baseline;gap:8px;margin-top:6px"><span style="font-size:56px;font-weight:300;letter-spacing:-.07em;line-height:1">3</span><span style="font-size:28px;opacity:.65;font-weight:300">/ 5</span></div>
-          <div style="font-size:12px;opacity:.8;margin-top:2px">목표 대비 건 · 상담 12건 진행</div>
-        </div>
-        <div style="position:relative">
-          <div style="display:flex;justify-content:flex-end;font-size:12px;margin-bottom:10px;gap:6px;align-items:center">계속해 볼까요<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path d="M9 18l6-6-6-6"/></svg></div>
-          <div style="height:6px;border-radius:2px;background:rgba(255,255,255,.22)"><div style="width:60%;height:100%;border-radius:2px;background:#fff"></div></div>
-        </div>
-      </div>
+    <div class="tabs">
+      <a class="tab on" href="Main.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>오늘</a>
+      <a class="tab" href="Patient.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>비교 기간 환자</a>
+      <a class="tab" href="Churn.dc.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 17l-8.5-8.5-5 5L2 7M16 17h6v-6"/></svg>이탈 분석</a>
+    </div>
 
-      <div style="flex:1.7 1 520px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px">
-        <div class="card" style="padding:20px 22px">
-          <div class="sub">신규 문의 (이번 주)</div>
-          <div style="font-size:33px;font-weight:300;margin-top:6px;letter-spacing:-.07em">18<span style="font-size:14px;font-weight:700;color:var(--muted)"> 건</span></div>
-          <span class="chip blue" style="margin-top:8px">지난주 대비 +4</span>
-        </div>
-        <div class="card" style="padding:20px 22px">
-          <div class="sub">상담 → 결정 전환 (60일)</div>
-          <div style="font-size:33px;font-weight:300;margin-top:6px;letter-spacing:-.07em">41<span style="font-size:14px;font-weight:700;color:var(--muted)"> %</span></div>
-          <span class="chip mist" style="margin-top:8px">68건 중 28건</span>
-        </div>
-        <div class="card" style="padding:20px 22px">
-          <div class="sub">진행 중인 비교 기간 환자</div>
-          <div style="font-size:33px;font-weight:300;margin-top:6px;letter-spacing:-.07em">27<span style="font-size:14px;font-weight:700;color:var(--muted)"> 명</span></div>
-          <span class="chip mist" style="margin-top:8px">평균 D+9 경과</span>
-        </div>
-        <a href="Churn.dc.html" class="card" style="padding:20px 22px;background:var(--coraltint);border:1px solid #E4B8AD;display:block;position:relative">
-          <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:11px;color:var(--coral);font-weight:700">이탈 위험 지금</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" style="color:var(--coral)"><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0zM12 9v4M12 17h.01"/></svg></div>
-          <div style="font-size:33px;font-weight:300;margin-top:6px;letter-spacing:-.07em;color:var(--coral)">7<span style="font-size:14px;font-weight:700"> 명</span></div>
-          <span class="chip solid" style="margin-top:8px">D+10 이상 무반응 3명</span>
-        </a>
-      </div>
-    </section>
+    <div class="sec"><h2>오늘의 현황</h2><div class="sbox"><span style="display:flex;gap:8px;align-items:center"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 21l-4.3-4.3M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16z"/></svg>환자 검색</span><span style="font-size:10px">⌘F</span></div></div>
 
-    <!-- Current patients -->
-    <section>
-      <div style="display:flex;justify-content:space-between;align-items:baseline;margin:4px 4px 14px"><h2 class="h2" style="font-size:19px">비교 기간 환자</h2><a href="Patient.dc.html" class="sub" style="font-size:12px;display:flex;align-items:center;gap:4px">전체 보기<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path d="M9 18l6-6-6-6"/></svg></a></div>
-      <div style="display:flex;gap:18px;overflow-x:auto;padding:2px 2px 14px">
-        <sc-for list="{{patients}}" as="p" hint-placeholder-count="4">
-          <a href="Patient.dc.html" class="{{p.cls}}">
-            <div style="height:92px;background:{{p.tone}};padding:14px;display:flex;justify-content:space-between;align-items:flex-start">
-              <span class="{{p.chipCls}}" style="background:rgba(255,255,255,.92)">{{p.chip}}</span>
-              <span style="width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--navy)">{{p.init}}</span>
-            </div>
-            <div style="padding:16px 18px 18px">
-              <div style="font-size:14px;font-weight:700">{{p.name}}</div>
-              <div class="sub" style="margin-top:2px">{{p.proc}}</div>
-              <div style="display:flex;justify-content:space-between;font-size:11px;margin:14px 0 6px"><span class="sub">여정 진행</span><b>{{p.pct}}</b></div>
-              <div class="{{p.barCls}}"><i style="width:{{p.pct}}"></i></div>
-              <div style="font-size:11px;color:{{p.sigColor}};margin-top:12px;font-weight:400">{{p.signal}}</div>
-            </div>
-          </a>
+    <div class="stats">
+      <div class="stat"><div class="k">신규 문의 · 이번 주</div><div class="v">18<span style="font-size:12px;margin-left:4px">건</span></div><div class="d">지난주 대비 +4</div></div>
+      <div class="stat"><div class="k">상담 → 결정 · 60일</div><div class="v">41<span style="font-size:12px;margin-left:4px">%</span></div><div class="d">68건 중 28건</div></div>
+      <div class="stat"><div class="k">비교 기간 환자</div><div class="v">27<span style="font-size:12px;margin-left:4px">명</span></div><div class="d">평균 D+9 경과</div></div>
+      <a class="stat hot" href="Churn.dc.html" style="display:block"><div class="k">이탈 위험 지금</div><div class="v">7<span style="font-size:12px;margin-left:4px">명</span></div><div class="d">D+10 이상 무반응 3명</div></a>
+    </div>
+
+    <div class="grp">
+      <div class="gh2"><div class="t"><span style="color:var(--coral)">이탈 위험 환자</span><span class="cnt">7</span></div><span class="btn"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0M14 4v4M8 10v4M16 16v4"/></svg>필터</span></div>
+      <div class="tbl">
+        <div class="tr th c1"><span>환자</span><span>시술</span><span>단계</span><span>경과</span><span>이탈 위험</span><span>여정 진행</span></div>
+        <sc-for list="{{risk}}" as="r" hint-placeholder-count="5">
+          <div class="tr c1"><span class="who"><span class="av0">{{r.init}}</span>{{r.name}}</span><span>{{r.proc}}</span><span><span class="type">{{r.stage}}</span></span><span class="mu">{{r.age}}</span><span><span class="{{r.cls}}">{{r.lvl}}</span></span><span class="pg"><b>{{r.pct}}</b><i><span style="width:{{r.pct}};background:{{r.col}}"></span></i></span></div>
         </sc-for>
       </div>
-    </section>
+    </div>
 
-    <!-- Funnel + tasks -->
-    <section style="display:flex;flex-wrap:wrap;gap:24px">
-      <div class="card" style="flex:1.5 1 520px">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap">
-          <div><h2 class="h2" style="font-size:18px">상담 퍼널 · 이탈 구간</h2><div class="sub" style="margin-top:4px">최근 60일 · 문의 120명 기준</div></div>
-          <span class="chip coral">가장 큰 이탈 · 견적 후 → 결정 46%</span>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:14px;margin-top:22px">
-          <sc-for list="{{funnel}}" as="f" hint-placeholder-count="5">
-            <div style="display:flex;align-items:center;gap:14px">
-              <div style="flex:0 0 76px;font-size:11px;font-weight:700">{{f.label}}</div>
-              <div style="flex:1;height:34px;border-radius:2px;background:#E4E8F1;overflow:hidden"><div style="width:{{f.w}};height:100%;border-radius:2px;background:{{f.color}};display:flex;align-items:center;padding-left:12px;color:#fff;font-weight:700;font-size:12px">{{f.n}}</div></div>
-              <div style="flex:0 0 112px;display:flex;justify-content:flex-end"><span class="{{f.dropCls}}">{{f.drop}}</span></div>
-            </div>
-          </sc-for>
-        </div>
-        <div style="margin-top:20px;padding:14px 16px;border-radius:2px;background:var(--coraltint);color:var(--coral);font-size:11px;line-height:1.5;font-weight:400">견적 제시 후 비교 기간에 24명이 결정 없이 멈췄어요. 이 중 9명은 타병원 비교가 사유로 기록되어 있어요.</div>
+    <div class="grp">
+      <div class="gh2"><div class="t"><span>결심 임박 · 진행 중</span><span class="cnt">3</span></div><span class="btn"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0M14 4v4M8 10v4M16 16v4"/></svg>필터</span></div>
+      <div class="tbl">
+        <div class="tr th c1"><span>환자</span><span>시술</span><span>단계</span><span>경과</span><span>이탈 위험</span><span>여정 진행</span></div>
+        <sc-for list="{{ok}}" as="r" hint-placeholder-count="3">
+          <div class="tr c1"><span class="who"><span class="av0">{{r.init}}</span>{{r.name}}</span><span>{{r.proc}}</span><span><span class="type">{{r.stage}}</span></span><span class="mu">{{r.age}}</span><span><span class="{{r.cls}}">{{r.lvl}}</span></span><span class="pg"><b>{{r.pct}}</b><i><span style="width:{{r.pct}};background:{{r.col}}"></span></i></span></div>
+        </sc-for>
       </div>
+    </div>
 
-      <div class="card" style="flex:1 1 340px">
-        <div style="display:flex;justify-content:space-between;align-items:baseline"><h2 class="h2" style="font-size:18px">오늘의 연락</h2><span class="sub">4건</span></div>
-        <div style="margin-top:8px">
-          <sc-for list="{{tasks}}" as="t" hint-placeholder-count="4">
-            <div class="task">
-              <span style="flex:none;width:26px;height:26px;border-radius:50%;border:2px solid {{t.ring}};background:{{t.fill}};display:flex;align-items:center;justify-content:center;color:#fff">
-                <sc-if value="{{t.done}}" hint-placeholder-val="{{false}}"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;stroke-width:3"><path d="M5 12l5 5L20 7"/></svg></sc-if>
-              </span>
-              <div style="flex:1;min-width:0"><div style="font-size:12px;font-weight:700">{{t.title}}</div><div class="sub" style="margin-top:2px;color:{{t.subColor}}">{{t.sub}}</div></div>
-              <span class="sub" style="font-size:11px;white-space:nowrap">{{t.time}}</span>
-            </div>
-          </sc-for>
-        </div>
+    <div class="grp">
+      <div class="gh2"><div class="t"><span>상담 퍼널 · 이탈 구간</span><span class="chipx hot">가장 큰 이탈 · 견적 후 → 결정 46%</span></div><span class="mu" style="font-size:11px">최근 60일 · 문의 120명 기준</span></div>
+      <div class="tbl">
+        <div class="tr th c3"><span>단계</span><span>인원</span><span>이탈</span><span>잔존</span></div>
+        <sc-for list="{{funnel}}" as="f" hint-placeholder-count="5">
+          <div class="{{f.cls}}"><span>{{f.label}}</span><span>{{f.n}}</span><span><span class="{{f.dcls}}">{{f.drop}}</span></span><span class="{{f.bar}}"><i style="width:{{f.w}}"></i></span></div>
+        </sc-for>
       </div>
-    </section>
+    </div>
 
-    <!-- Bottom 3 -->
-    <section style="display:flex;flex-wrap:wrap;gap:24px">
-      <div class="card" style="flex:1 1 320px">
-        <h2 class="h2" style="font-size:18px">이탈 사유</h2><div class="sub" style="margin:4px 0 18px">이탈 24명 · 상담 후 기록</div>
-        <div style="display:flex;flex-direction:column;gap:14px">
+    <div class="cols">
+      <div class="grp" style="flex:1 1 320px">
+        <div class="gh2"><div class="t"><span>이탈 사유</span><span class="cnt">24명</span></div></div>
+        <div class="tbl">
+          <div class="tr th c4" style="min-width:0"><span>사유</span><span>인원</span><span>비율</span><span></span></div>
           <sc-for list="{{reasons}}" as="r" hint-placeholder-count="5">
-            <div><div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:6px"><span style="font-weight:700">{{r.label}}</span><span class="sub">{{r.n}}명 · {{r.pct}}</span></div><div class="{{r.cls}}"><i style="width:{{r.pct}}"></i></div></div>
+            <div class="tr c4" style="min-width:0"><span>{{r.label}}</span><span>{{r.n}}</span><span class="mu">{{r.pct}}</span><span class="{{r.bar}}"><i style="width:{{r.pct}}"></i></span></div>
           </sc-for>
         </div>
       </div>
-
-      <div class="card" style="flex:1.2 1 360px">
-        <h2 class="h2" style="font-size:18px">채널별 전환</h2><div class="sub" style="margin:4px 0 14px">문의 → 결정 · 추적 링크/번호 기준</div>
-        <div style="display:flex;flex-direction:column">
+      <div class="grp" style="flex:1.2 1 360px">
+        <div class="gh2"><div class="t"><span>채널별 전환</span><span class="cnt">추적 링크 · 번호</span></div></div>
+        <div class="tbl">
+          <div class="tr th c5" style="min-width:0"><span>채널</span><span>문의</span><span>결정</span><span>전환</span><span></span></div>
           <sc-for list="{{channels}}" as="c" hint-placeholder-count="5">
-            <div class="task" style="gap:12px">
-              <div style="flex:0 0 108px;font-size:11px;font-weight:700">{{c.name}}</div>
-              <div style="flex:1"><div class="bar" style="height:8px"><i style="width:{{c.w}}"></i></div><div class="sub" style="font-size:10px;margin-top:5px">문의 {{c.inq}} · 결정 {{c.won}}</div></div>
-              <span class="{{c.chipCls}}">{{c.rate}}</span>
-            </div>
+            <div class="tr c5" style="min-width:0"><span>{{c.name}}</span><span>{{c.inq}}</span><span>{{c.won}}</span><span><span class="{{c.cls}}">{{c.rate}}</span></span><span></span></div>
           </sc-for>
         </div>
       </div>
+    </div>
 
-      <div class="card" style="flex:1 1 320px">
-        <h2 class="h2" style="font-size:18px">방금 들어온 신호</h2><div class="sub" style="margin:4px 0 14px">Smile Plan 열람 · 문의 · 응답</div>
-        <div style="display:flex;flex-direction:column;gap:2px">
-          <sc-for list="{{signals}}" as="s" hint-placeholder-count="5">
-            <div style="display:flex;gap:12px;padding:10px 0;align-items:flex-start">
-              <span style="flex:none;margin-top:6px;width:10px;height:10px;border-radius:50%;background:{{s.color}}"></span>
-              <div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:700;line-height:1.4">{{s.text}}</div><div class="sub" style="font-size:11px">{{s.sub}}</div></div>
-              <span class="sub" style="font-size:11px;white-space:nowrap">{{s.time}}</span>
-            </div>
-          </sc-for>
-        </div>
+    <div class="grp">
+      <div class="gh2"><div class="t"><span>오늘의 연락</span><span class="cnt">4</span></div></div>
+      <div class="tbl">
+        <div class="tr th c2"><span>할 일</span><span>환자</span><span>유형</span><span>시간</span><span>상태</span></div>
+        <sc-for list="{{tasks}}" as="t" hint-placeholder-count="4">
+          <div class="tr c2"><span>{{t.t}}</span><span class="who"><span class="av0">{{t.init}}</span>{{t.who}}</span><span><span class="type">{{t.type}}</span></span><span class="mu">{{t.time}}</span><span><span class="{{t.cls}}">{{t.st}}</span></span></div>
+        </sc-for>
       </div>
-    </section>
-
-    <div style="display:flex;justify-content:space-between;align-items:center;padding:0 4px 8px;flex-wrap:wrap;gap:8px"><span class="sub" style="font-size:11px">표시된 환자명·수치는 디자인용 샘플 데이터입니다.</span><span class="hand" style="font-size:21px;color:var(--navy2);transform:rotate(-2deg)">Small steps, big results</span></div>
+    </div>
+    <div class="note">표시된 환자명·수치는 디자인용 샘플 데이터입니다.</div>
   </main>
-</div>
+</div></div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1780}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1700}}'>
 class Component extends DCLogic {
+  sideData(active) {
+    const items = [
+      ['홈', 'M3 11l9-8 9 8v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z', 'Main.dc.html'],
+      ['환자 여정', 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8', 'Patient.dc.html'],
+      ['이탈 분석', 'M22 17l-8.5-8.5-5 5L2 7M16 17h6v-6', 'Churn.dc.html'],
+      ['케이스 원장', 'M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM8.5 10a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM21 15l-5-5L5 21', 'Ledger.dc.html'],
+      ['채널 트래킹', 'M3 3v18h18M7 16v-5M12 16V7M17 16v-3', 'Main.dc.html'],
+      ['설문 · Smile Plan', 'M22 2L11 13M22 2l-7 20-4-9-9-4z', 'Survey.dc.html']
+    ];
+    return {
+      nav: items.map(([label, d, href]) => ({ label, d, href, cls: href === active ? 'ni on' : 'ni' })),
+      lines: [{ t: '라미네이트', c: '#3E62A8' }, { t: '올세라믹', c: '#E58A2D' }, { t: '재시술', c: '#D4573E' }, { t: '잇몸성형 병행', c: '#14213D' }],
+      ints: [
+        { t: '네이버 예약', d: 'M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z' },
+        { t: '카카오 채널', d: 'M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z' },
+        { t: '추적 전화번호', d: 'M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z' }
+      ]
+    };
+  }
+
   renderVals() {
-    const nav = [
-      { label: '홈', d: 'M3 11l9-8 9 8v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z', cls: 'nav on', href: 'Main.dc.html' },
-      { label: '환자 여정', d: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8', cls: 'nav', href: 'Patient.dc.html' },
-      { label: '이탈 분석', d: 'M22 17l-8.5-8.5-5 5L2 7M16 17h6v-6', cls: 'nav', href: 'Churn.dc.html' },
-      { label: '케이스 원장', d: 'M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM8.5 10a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM21 15l-5-5L5 21', cls: 'nav', href: 'Ledger.dc.html' },
-      { label: '채널 트래킹', d: 'M3 3v18h18M7 16v-5M12 16V7M17 16v-3', cls: 'nav', href: 'Main.dc.html' },
-      { label: '설문 · Smile Plan', d: 'M22 2L11 13M22 2l-7 20-4-9-9-4z', cls: 'nav', href: 'Survey.dc.html' }
+    const col = (p) => (p >= 60 ? '#2F5FD0' : p >= 35 ? '#E58A2D' : '#D4573E');
+    const lv = { High: 'pill p-high', Medium: 'pill p-med', Low: 'pill p-low' };
+    const mk = (init, name, proc, stage, age, lvl, p) => ({ init, name, proc, stage, age, lvl, cls: lv[lvl], pct: p + '%', col: col(p) });
+    const risk = [
+      mk('박', '박OO', '올세라믹 · 상악 8', '비교 중', 'D+12', 'High', 45),
+      mk('윤', '윤OO', '라미네이트 · 상하악 10', '결정권자', 'D+10', 'High', 58),
+      mk('김', '김OO', '라미네이트 · 상악 6', '견적 후', 'D+9', 'Medium', 52),
+      mk('한', '한OO', '재시술 · 라미네이트', '비교 중', 'D+5', 'Medium', 30),
+      mk('서', '서OO', '라미네이트 · 상악 4', '시기 보류', 'D+14', 'Medium', 38)
     ];
-    const patients = [
-      { init: '이', name: '이OO님', proc: '라미네이트 · 상악 6', chip: '결심 임박', chipCls: 'chip blue', pct: '85%', barCls: 'bar', signal: 'Smile Plan 4회 열람 · 어제 21:40', sigColor: '#1F46A8', tone: '#C5D3EE', cls: 'pcard' },
-      { init: '박', name: '박OO님', proc: '올세라믹 · 상악 8', chip: '이탈 위험', chipCls: 'chip coral', pct: '45%', barCls: 'bar risk', signal: 'D+12 · 12일째 무열람', sigColor: '#B8452F', tone: '#F2D2C9', cls: 'pcard risk' },
-      { init: '최', name: '최OO님', proc: '라미네이트 · 상하악 10', chip: '결정권자 확인', chipCls: 'chip mist', pct: '60%', barCls: 'bar', signal: '배우자 기기에서 열람 감지', sigColor: '#2A3A63', tone: '#D5DDEE', cls: 'pcard' },
-      { init: '한', name: '한OO님', proc: '재시술 · 라미네이트 교체', chip: '비교 중', chipCls: 'chip mist', pct: '30%', barCls: 'bar', signal: 'D+5 · 타병원 3곳 비교 중', sigColor: '#2A3A63', tone: '#CBD6EC', cls: 'pcard' }
+    const ok = [
+      mk('이', '이OO', '라미네이트 · 상악 6', '결심 임박', 'D+7', 'Low', 85),
+      mk('최', '최OO', '라미네이트 · 상하악 10', '결정권자 확인', 'D+6', 'Low', 60),
+      mk('정', '정OO', '올세라믹 · 상악 8', '견적 검토', 'D+3', 'Low', 62)
     ];
-    const funnel = [
-      { label: '문의', n: '120', w: '100%', color: '#16264A', drop: '', dropCls: 'sub' },
-      { label: '상담 예약', n: '84', w: '70%', color: '#243B6B', drop: '−36 (30%)', dropCls: 'chip mist' },
-      { label: '내원 상담', n: '68', w: '57%', color: '#2F4D8C', drop: '−16 (19%)', dropCls: 'chip mist' },
-      { label: '견적 제시', n: '52', w: '43%', color: '#3E62A8', drop: '−16 (24%)', dropCls: 'chip mist' },
-      { label: '결정', n: '28', w: '23%', color: '#16264A', drop: '−24 (46%)', dropCls: 'chip solid' }
+    const f = (label, n, drop, w, hot) => ({ label, n, drop: drop || '–', w, cls: hot ? 'tr c3 hot' : 'tr c3', dcls: hot ? 'pill p-high' : (drop ? 'pill p-wait' : 'mu'), bar: hot ? 'hb hot' : 'hb' });
+    const funnel = [f('문의', 120, '', '100%'), f('상담 예약', 84, '−36 (30%)', '70%'), f('내원 상담', 68, '−16 (19%)', '57%'), f('견적 제시', 52, '−16 (24%)', '43%'), f('결정', 28, '−24 (46%)', '23%', true)];
+    const reasons = [
+      { label: '타병원 비교', n: 9, pct: '38%', bar: 'hb hot' },
+      { label: '가격 부담', n: 5, pct: '21%', bar: 'hb' },
+      { label: '시술 두려움', n: 4, pct: '17%', bar: 'hb' },
+      { label: '결정권자 설득', n: 3, pct: '12%', bar: 'hb' },
+      { label: '시기 보류', n: 3, pct: '12%', bar: 'hb' }
+    ];
+    const ch = (name, inq, won, rate, cls) => ({ name, inq, won, rate, cls });
+    const channels = [
+      ch('네이버 플레이스', 46, 9, '20%', 'pill p-med'), ch('블로그 케이스글', 31, 10, '32%', 'pill p-low'),
+      ch('인스타그램', 22, 3, '14%', 'pill p-high'), ch('지인 소개', 13, 5, '38%', 'pill p-low'), ch('기타 · 전화', 8, 1, '13%', 'pill p-high')
     ];
     const tasks = [
-      { title: '이OO님 · 상담 전화', sub: '결심 임박 · Smile Plan 4회 열람', time: '10:00', done: true, ring: '#16264A', fill: '#16264A', subColor: '#5C6683' },
-      { title: '박OO님 · 안부 메시지', sub: '이탈 위험 · 비교 체크리스트 발송', time: '11:30', done: false, ring: '#D4573E', fill: 'transparent', subColor: '#B8452F' },
-      { title: '최OO님 · 동반 상담 초대', sub: '결정권자 열람 감지 · 부담 없는 초대', time: '14:00', done: false, ring: '#B6BFD3', fill: 'transparent', subColor: '#5C6683' },
-      { title: '정OO님 · 5년 경과 촬영', sub: '장기 경과 케이스 리콜', time: '16:30', done: false, ring: '#B6BFD3', fill: 'transparent', subColor: '#5C6683' }
+      { t: '상담 전화', init: '이', who: '이OO', type: '결심 임박', time: '10:00', st: '완료', cls: 'pill p-done' },
+      { t: '안부 메시지 검토', init: '박', who: '박OO', type: '이탈 위험', time: '11:30', st: '대기', cls: 'pill p-wait' },
+      { t: '동반 상담 초대', init: '최', who: '최OO', type: '결정권자', time: '14:00', st: '대기', cls: 'pill p-wait' },
+      { t: '5년 경과 촬영 리콜', init: '정', who: '정OO', type: '장기 경과', time: '16:30', st: '대기', cls: 'pill p-wait' }
     ];
-    const reasons = [
-      { label: '타병원 비교', n: 9, pct: '38%', cls: 'bar risk' },
-      { label: '가격 부담', n: 5, pct: '21%', cls: 'bar' },
-      { label: '시술 두려움', n: 4, pct: '17%', cls: 'bar' },
-      { label: '결정권자 설득', n: 3, pct: '12%', cls: 'bar' },
-      { label: '시기 보류', n: 3, pct: '12%', cls: 'bar' }
-    ];
-    const channels = [
-      { name: '네이버 플레이스', inq: 46, won: 9, w: '20%', rate: '20%', chipCls: 'chip mist' },
-      { name: '블로그 케이스글', inq: 31, won: 10, w: '32%', rate: '32%', chipCls: 'chip blue' },
-      { name: '인스타그램', inq: 22, won: 3, w: '14%', rate: '14%', chipCls: 'chip coral' },
-      { name: '지인 소개', inq: 13, won: 5, w: '38%', rate: '38%', chipCls: 'chip blue' },
-      { name: '기타 · 전화', inq: 8, won: 1, w: '13%', rate: '13%', chipCls: 'chip coral' }
-    ];
-    const signals = [
-      { text: '이OO님이 Smile Plan을 다시 열람했어요', sub: '유사 케이스 섹션 3분 체류', time: '09:38', color: '#2F5FD0' },
-      { text: '박OO님 · 12일째 열람 없음', sub: '이탈 위험 단계로 전환', time: '09:10', color: '#D4573E' },
-      { text: '최OO님 링크가 다른 기기에서 열렸어요', sub: '결정권자 개입 신호', time: '어제', color: '#2A4378' },
-      { text: '신규 문의 · 블로그 케이스글 경유', sub: '라미네이트 상담 요청', time: '어제', color: '#2F5FD0' },
-      { text: '한OO님이 비교 중이라고 응답했어요', sub: '타병원 3곳 · 기준: 경험', time: '어제', color: '#2A4378' }
-    ];
-    return { nav, patients, funnel, tasks, reasons, channels, signals };
+    return Object.assign({}, this.sideData('Main.dc.html'), { risk, ok, funnel, reasons, channels, tasks });
   }
 }
 </script>
