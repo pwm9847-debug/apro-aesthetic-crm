@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>환자 360</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:inherit;text-decoration:none}
+.app{--ink:#0E1A33;--navy:#16264A;--navy2:#2A4378;--mist:#DCE3F0;--line:#E2E6EF;--card:#F8F9FC;--bg:#E9ECF2;--muted:#5C6683;--coral:#B8452F;--coral2:#D4573E;--coraltint:#F7E4DE;--blue:#2F5FD0;background:var(--bg);color:var(--ink);font-family:'Plus Jakarta Sans','Noto Sans KR',sans-serif;box-sizing:border-box;min-height:100%}
+.app *{box-sizing:border-box}
+.card{background:var(--card);border-radius:28px;padding:24px;box-shadow:0 10px 30px -20px rgba(22,38,74,.35)}
+.h2{font-size:20px;font-weight:600;margin:0;letter-spacing:-.01em}
+.sub{font-size:13px;color:var(--muted)}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:5px 10px;border-radius:999px;white-space:nowrap}
+.chip.blue{background:#DDE6FA;color:#1F46A8}
+.chip.coral{background:var(--coraltint);color:var(--coral)}
+.chip.mist{background:var(--mist);color:#2A3A63}
+.chip.solid{background:var(--coral);color:#fff}
+.bar{height:6px;border-radius:99px;background:#DEE3EE;overflow:hidden}
+.bar>i{display:block;height:100%;border-radius:99px;background:var(--navy)}
+.hand{font-family:'Nanum Pen Script',cursive}
+.nav{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:16px;color:var(--muted);font-size:14px;font-weight:500}
+.nav:hover{background:#E8ECF5}
+.nav.on{background:var(--navy);color:#fff}
+.ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--blue);display:inline-block}
+.lab{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.02em;margin-bottom:8px}
+.btn{height:46px;border-radius:999px;border:0;padding:0 22px;font:600 14px 'Plus Jakarta Sans','Noto Sans KR',sans-serif;display:inline-flex;align-items:center;gap:8px;cursor:pointer}
+</style>
+</helmet>
+<div class="app" style="display:flex;flex-wrap:wrap;gap:24px;padding:24px;align-items:flex-start">
+
+  <aside class="card" style="flex:0 0 232px;display:flex;flex-direction:column;gap:6px;padding:20px 16px;min-height:900px;justify-content:space-between">
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="display:flex;align-items:center;gap:10px;padding:6px 12px 22px">
+        <div style="width:34px;height:34px;border-radius:12px;background:var(--navy);display:flex;align-items:center;justify-content:center">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 10c2 6 14 6 16 0"/><path d="M8 13v2M12 14v2M16 13v2"/></svg>
+        </div>
+        <div style="display:flex;flex-direction:column;line-height:1.1"><span style="font-weight:800;letter-spacing:.16em;font-size:13px">APRO</span><span class="sub" style="font-size:11px">Aesthetic CRM</span></div>
+      </div>
+      <sc-for list="{{nav}}" as="n" hint-placeholder-count="6">
+        <a class="{{n.cls}}" href="{{n.href}}"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="{{n.d}}"/></svg><span>{{n.label}}</span></a>
+      </sc-for>
+    </div>
+    <div class="hand" style="font-size:26px;line-height:1;color:var(--navy2);transform:rotate(-4deg);padding:0 12px 12px">어제보다<br>한 걸음 더</div>
+  </aside>
+
+  <main style="flex:999 1 640px;min-width:0;display:flex;flex-direction:column;gap:24px">
+
+    <header style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-end;padding:8px 4px 0">
+      <div>
+        <a href="Main.dc.html" class="sub" style="display:inline-flex;align-items:center;gap:4px;font-size:14px"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path d="M15 18l-6-6 6-6"/></svg>홈으로</a>
+        <div style="display:flex;align-items:center;gap:16px;margin-top:10px;flex-wrap:wrap">
+          <div style="width:64px;height:64px;border-radius:50%;background:#E5AE9F;color:#16264A;font-size:24px;font-weight:800;display:flex;align-items:center;justify-content:center">박</div>
+          <div>
+            <h1 style="margin:0;font-size:38px;font-weight:800;letter-spacing:-.02em;line-height:1.1">박OO님</h1>
+            <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap"><span class="chip coral">이탈 위험</span><span class="chip mist">비교 기간 · D+12</span><span class="chip mist">올세라믹 · 상악 8</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn" style="background:var(--card);color:var(--ink)">메모 남기기</button>
+        <button class="btn" style="background:var(--navy);color:#fff"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>안부 메시지 검토</button>
+      </div>
+    </header>
+
+    <section style="display:flex;flex-wrap:wrap;gap:24px;align-items:stretch">
+
+      <!-- Radar -->
+      <div class="card" style="flex:1.6 1 560px;display:flex;flex-direction:column;gap:22px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap">
+          <div><h2 class="h2">결정 레이더</h2><div class="sub" style="margin-top:4px">행동 신호로 추정한 현재 단계와 이탈 위험</div></div>
+          <span class="chip mist">내부 참고용 · 환자에게 노출되지 않아요</span>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+          <sc-for list="{{steps}}" as="s" hint-placeholder-count="4">
+            <div style="flex:1 1 110px;display:flex;flex-direction:column;gap:8px">
+              <div style="height:8px;border-radius:99px;background:{{s.bg}}"></div>
+              <div style="font-size:13px;font-weight:{{s.fw}};color:{{s.fg}}">{{s.t}}</div>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:center">
+          <div style="flex:0 0 220px;text-align:center">
+            <svg viewBox="0 0 200 124" style="width:220px;height:auto" role="img" aria-label="이탈 위험 지수 72점">
+              <path d="M20 100 A80 80 0 0 1 180 100" fill="none" stroke="#DEE3EE" stroke-width="16" stroke-linecap="round"/>
+              <path d="M20 100 A80 80 0 0 1 180 100" fill="none" stroke="#D4573E" stroke-width="16" stroke-linecap="round" stroke-dasharray="181 251.3"/>
+              <text x="100" y="92" text-anchor="middle" font-size="40" font-weight="800" fill="#0E1A33" font-family="Plus Jakarta Sans, Noto Sans KR, sans-serif">72</text>
+              <text x="100" y="114" text-anchor="middle" font-size="12" fill="#5C6683" font-family="Plus Jakarta Sans, Noto Sans KR, sans-serif">이탈 위험 지수</text>
+            </svg>
+          </div>
+          <div style="flex:1 1 280px;display:flex;flex-direction:column;gap:12px">
+            <div class="lab" style="margin:0">위험 지수를 올린 근거</div>
+            <sc-for list="{{reasons}}" as="r" hint-placeholder-count="4">
+              <div style="display:flex;align-items:center;gap:12px;background:#fff;border-radius:16px;padding:12px 14px">
+                <span style="flex:none;width:34px;text-align:center;font-weight:800;font-size:13px;color:#B8452F">{{r.pt}}</span>
+                <div style="flex:1;font-size:13px;font-weight:600;line-height:1.4">{{r.t}}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px"><div class="lab" style="margin:0">Smile Plan 열람 · 상담일부터 매일</div><span class="sub" style="font-size:12px">회색 점선 = 골든타임 D+7~14</span></div>
+          <div style="display:flex;gap:6px">
+            <sc-for list="{{days}}" as="d" hint-placeholder-count="13">
+              <div style="flex:1 1 0;min-width:0;text-align:center">
+                <div style="height:44px;border-radius:10px;background:{{d.bg}};border:{{d.bd}};color:{{d.fg}};font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center">{{d.n}}</div>
+                <div style="font-size:11px;color:#5C6683;margin-top:6px">{{d.l}}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+
+      <!-- Briefing -->
+      <div style="flex:1 1 380px;display:flex;flex-direction:column;gap:24px">
+        <div style="position:relative;overflow:hidden;border-radius:28px;background:linear-gradient(160deg,#243B6B 0%,#0E1A33 75%);color:#fff;padding:26px">
+          <svg style="position:absolute;left:0;top:0;width:100%;height:100%" viewBox="0 0 400 240" preserveAspectRatio="none" aria-hidden="true"><path d="M0 170 C70 140 140 120 210 150 S340 118 400 138 V240 H0Z" fill="#fff" fill-opacity=".06"/><path d="M0 210 C100 186 190 196 280 190 S370 192 400 198 V240 H0Z" fill="#fff" fill-opacity=".09"/></svg>
+          <div style="position:relative">
+            <div style="font-size:13px;opacity:.8">다음 행동 제안 · 직원 승인 후 발송</div>
+            <div style="font-size:21px;font-weight:700;margin-top:6px;line-height:1.35;letter-spacing:-.01em">타병원 비교에 쓸 체크리스트와 삭제량 리포트를 보내요</div>
+            <div style="margin-top:16px;background:rgba(255,255,255,.12);border-radius:18px;padding:14px 16px;font-size:13px;line-height:1.6;opacity:.95">&quot;안녕하세요, APRO입니다. 상담 때 말씀하신 상악 8개 올세라믹 설계 내용을 정리해 드려요. 다른 병원과 비교하실 때 참고하실 질문 목록도 함께 담았습니다.&quot;</div>
+            <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap"><span class="chip" style="background:rgba(255,255,255,.16);color:#fff">열람 사실 언급 없음</span><span class="chip" style="background:rgba(255,255,255,.16);color:#fff">시술명 숨김 알림톡</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <h2 class="h2" style="font-size:18px">상담 전 브리핑 카드</h2>
+          <div style="display:flex;flex-direction:column;gap:12px;margin-top:14px">
+            <sc-for list="{{brief}}" as="b" hint-placeholder-count="5">
+              <div style="display:flex;gap:12px;align-items:flex-start"><div style="flex:0 0 76px;font-size:12px;font-weight:600;color:#5C6683;padding-top:2px">{{b.k}}</div><div style="flex:1;font-size:13px;font-weight:600;line-height:1.5">{{b.v}}</div></div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="display:flex;flex-wrap:wrap;gap:24px;align-items:stretch">
+
+      <!-- Taste card -->
+      <div class="card" style="flex:1 1 400px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline"><h2 class="h2">심미 취향 카드</h2><span class="sub">설문 · 이미지 테스트</span></div>
+        <div style="margin-top:18px">
+          <div class="lab">선호 색상</div>
+          <div style="display:flex;gap:12px">
+            <sc-for list="{{shades}}" as="s" hint-placeholder-count="4">
+              <div style="text-align:center"><div style="width:52px;height:64px;border-radius:22px 22px 18px 18px;background:{{s.bg}};border:{{s.bd}}"></div><div style="font-size:11px;margin-top:6px;font-weight:{{s.fw}};color:{{s.fg}}">{{s.t}}</div></div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="margin-top:20px;display:flex;gap:24px;flex-wrap:wrap">
+          <div><div class="lab">선호 형태</div><span class="chip blue">자연스러운 곡선</span></div>
+          <div style="flex:1 1 160px"><div class="lab">변화 정도</div>
+            <div style="display:flex;gap:6px;align-items:center"><sc-for list="{{scale}}" as="x" hint-placeholder-count="5"><span style="width:26px;height:10px;border-radius:99px;background:{{x.bg}}"></span></sc-for><span class="sub" style="font-size:12px;margin-left:6px">2 / 5 · 자연스럽게</span></div></div>
+        </div>
+        <div style="margin-top:20px"><div class="lab">피하고 싶은 느낌</div><div style="display:flex;gap:8px;flex-wrap:wrap"><span class="chip coral">인위적으로 하얀</span><span class="chip coral">너무 큰 치아</span><span class="chip coral">일자 배열</span></div></div>
+        <div style="margin-top:20px"><div class="lab">레퍼런스</div>
+          <div style="display:flex;gap:10px"><sc-for list="{{refs}}" as="x" hint-placeholder-count="3"><div style="flex:1;height:74px;border-radius:16px;background:{{x.bg}};display:flex;align-items:flex-end;padding:8px"><svg viewBox="0 0 60 24" width="44" height="18" aria-hidden="true"><path d="M2 6c4 16 52 16 56 0" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-opacity=".85"/></svg></div></sc-for></div></div>
+      </div>
+
+      <!-- Survey -->
+      <div class="card" style="flex:1 1 360px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline"><h2 class="h2">설문 응답 요약</h2><span class="sub">10월 28일 · 모바일</span></div>
+        <div style="margin-top:16px;display:flex;flex-direction:column;gap:16px">
+          <div><div class="lab">개선하고 싶은 부위 · <span style="color:#B8452F">1순위 표시</span></div><div style="display:flex;gap:8px;flex-wrap:wrap"><span class="chip solid">치아 변색·누런 치아</span><span class="chip mist">벌어진 앞니</span><span class="chip mist">치아 크기·모양</span></div></div>
+          <div><div class="lab">희망 치아 수</div><div style="font-size:14px;font-weight:600">윗니 8개 · 아랫니 상담 후 결정</div></div>
+          <div><div class="lab">불편함</div><div style="display:flex;gap:8px;flex-wrap:wrap"><span class="chip mist">시린 증상</span><span class="chip mist">기존 보철물 탈락</span></div></div>
+          <div><div class="lab">습관</div><div style="display:flex;gap:8px;flex-wrap:wrap"><span class="chip coral">이갈이</span><span class="chip coral">이 악물기</span></div></div>
+          <div><div class="lab">병원 선택 기준 · 비교 현황</div><div style="display:flex;gap:8px;flex-wrap:wrap"><span class="chip blue">1순위 경험</span><span class="chip blue">2순위 사후관리</span><span class="chip mist">타병원 3곳 상담</span></div></div>
+          <div><div class="lab">희망 시기</div><div style="font-size:14px;font-weight:600">3개월 이내 · 행사 일정 없음</div></div>
+        </div>
+        <div style="margin-top:18px;padding:14px 16px;border-radius:16px;background:var(--coraltint);color:var(--coral);font-size:13px;font-weight:600;line-height:1.5">위험 플래그 · 이갈이 + 올세라믹 8개 → 재료·나이트가드 상담을 먼저 준비하세요.</div>
+      </div>
+
+      <!-- Timeline -->
+      <div class="card" style="flex:1 1 360px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline"><h2 class="h2">접점 타임라인</h2><span class="sub">유입부터 현재까지</span></div>
+        <div style="margin-top:18px;display:flex;flex-direction:column">
+          <sc-for list="{{timeline}}" as="t" hint-placeholder-count="7">
+            <div style="display:flex;gap:14px">
+              <div style="display:flex;flex-direction:column;align-items:center"><span style="width:12px;height:12px;border-radius:50%;background:{{t.c}};margin-top:4px"></span><span style="flex:1;width:2px;background:#DCE1EC;min-height:26px"></span></div>
+              <div style="padding-bottom:16px;flex:1"><div style="display:flex;justify-content:space-between;gap:8px"><span style="font-size:13px;font-weight:600;line-height:1.4">{{t.t}}</span><span class="sub" style="font-size:12px;white-space:nowrap">{{t.d}}</span></div><div class="sub" style="font-size:12px;margin-top:2px">{{t.s}}</div></div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:0 4px 8px;flex-wrap:wrap;gap:8px"><span class="sub" style="font-size:12px">표시된 환자명·수치는 디자인용 샘플 데이터입니다.</span><span class="hand" style="font-size:24px;color:var(--navy2);transform:rotate(-2deg)">Small steps, big results</span></div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1500}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const nav = [
+      { label: '홈', d: 'M3 11l9-8 9 8v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z', cls: 'nav', href: 'Main.dc.html' },
+      { label: '환자 여정', d: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8', cls: 'nav on', href: 'Patient.dc.html' },
+      { label: '이탈 분석', d: 'M22 17l-8.5-8.5-5 5L2 7M16 17h6v-6', cls: 'nav', href: 'Churn.dc.html' },
+      { label: '케이스 원장', d: 'M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM8.5 10a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM21 15l-5-5L5 21', cls: 'nav', href: 'Ledger.dc.html' },
+      { label: '채널 트래킹', d: 'M3 3v18h18M7 16v-5M12 16V7M17 16v-3', cls: 'nav', href: 'Main.dc.html' },
+      { label: '설문 · Smile Plan', d: 'M22 2L11 13M22 2l-7 20-4-9-9-4z', cls: 'nav', href: 'Survey.dc.html' }
+    ];
+    const steps = [
+      { t: '탐색', bg: '#16264A', fg: '#5C6683', fw: 500 },
+      { t: '비교 (현재)', bg: '#D4573E', fg: '#B8452F', fw: 700 },
+      { t: '검증', bg: '#DEE3EE', fg: '#5C6683', fw: 500 },
+      { t: '결정', bg: '#DEE3EE', fg: '#5C6683', fw: 500 }
+    ];
+    const reasons = [
+      { pt: '+30', t: '상담 후 12일째 Smile Plan 열람이 없어요' },
+      { pt: '+22', t: '타병원 3곳 상담, 1순위 기준이 "경험"이에요' },
+      { pt: '+12', t: '메시지를 읽고 답이 없었어요 (D+6)' },
+      { pt: '+8', t: '견적 재요청이 없어요' }
+    ];
+    const hits = [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    const days = hits.map((v, i) => {
+      const gold = i >= 7 && i <= 12;
+      return {
+        n: v === 0 ? '' : String(v),
+        l: 'D+' + i,
+        bg: v > 0 ? '#2F4D8C' : (gold ? '#F7E4DE' : '#E4E8F1'),
+        fg: '#fff',
+        bd: v > 0 ? '0' : (gold ? '1.5px dashed #D4573E' : '0')
+      };
+    });
+    const brief = [
+      { k: '유입', v: '블로그 케이스글 열람 4회 → 네이버 예약' },
+      { k: '본 증거', v: '유사 케이스 6건 · 원장 포트폴리오 · 5년 경과' },
+      { k: '결정권자', v: '본인 (비용 본인 부담)' },
+      { k: '연락 선호', v: '카카오 알림톡 · 시술명 숨김 · 평일 저녁' },
+      { k: '주의', v: '비교 쇼퍼 유형 · 압박 문구 금지' }
+    ];
+    const shades = [
+      { t: '자연', bg: '#F3E6C9', fg: '#5C6683', fw: 500, bd: '2px solid transparent' },
+      { t: '한 톤 밝게', bg: '#F6EEDC', fg: '#0E1A33', fw: 700, bd: '2px solid #16264A' },
+      { t: '화사한', bg: '#F4F5F7', fg: '#5C6683', fw: 500, bd: '2px solid transparent' },
+      { t: '매우 밝은', bg: '#FFFFFF', fg: '#5C6683', fw: 500, bd: '2px solid #E2E6EF' }
+    ];
+    const scale = [1, 2, 3, 4, 5].map((i) => ({ bg: i <= 2 ? '#16264A' : '#DEE3EE' }));
+    const refs = [{ bg: 'linear-gradient(135deg,#C5D3EE,#8FA6D6)' }, { bg: 'linear-gradient(135deg,#D5DDEE,#A9BDE3)' }, { bg: 'linear-gradient(135deg,#B9C6E2,#7F98CE)' }];
+    const timeline = [
+      { t: '블로그 케이스글 열람', s: '올세라믹 vs 라미네이트 · 4회', d: '10/09', c: '#2F5FD0' },
+      { t: '네이버 예약', s: '추적 링크 · 심미 상담', d: '10/21', c: '#2F5FD0' },
+      { t: '사전 설문 완료', s: '2분 · 모바일', d: '10/27', c: '#2F5FD0' },
+      { t: '내원 상담 · 견적 제시', s: '유사 케이스 열람 · 원장 상담', d: '10/28', c: '#16264A' },
+      { t: 'Smile Plan 전송 · 열람 2회', s: '유사 케이스 섹션 체류', d: '10/28', c: '#2F5FD0' },
+      { t: '메시지 확인, 답장 없음', s: 'D+6 안부 메시지', d: '11/03', c: '#9AA3BA' },
+      { t: '열람 없음 12일째', s: '이탈 위험 단계로 전환', d: '11/09', c: '#D4573E' }
+    ];
+    return { nav, steps, reasons, days, brief, shades, scale, refs, timeline };
+  }
+}
+</script>
+</body>
+</html>

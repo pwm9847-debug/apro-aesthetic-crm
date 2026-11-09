@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>경험 원장</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:inherit;text-decoration:none}
+.app{--ink:#0E1A33;--navy:#16264A;--navy2:#2A4378;--mist:#DCE3F0;--line:#E2E6EF;--card:#F8F9FC;--bg:#E9ECF2;--muted:#5C6683;--coral:#B8452F;--coral2:#D4573E;--coraltint:#F7E4DE;--blue:#2F5FD0;background:var(--bg);color:var(--ink);font-family:'Plus Jakarta Sans','Noto Sans KR',sans-serif;box-sizing:border-box;min-height:100%}
+.app *{box-sizing:border-box}
+.card{background:var(--card);border-radius:28px;padding:24px;box-shadow:0 10px 30px -20px rgba(22,38,74,.35)}
+.h2{font-size:20px;font-weight:600;margin:0;letter-spacing:-.01em}
+.sub{font-size:13px;color:var(--muted)}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:5px 10px;border-radius:999px;white-space:nowrap}
+.chip.blue{background:#DDE6FA;color:#1F46A8}
+.chip.coral{background:var(--coraltint);color:var(--coral)}
+.chip.mist{background:var(--mist);color:#2A3A63}
+.chip.dark{background:var(--navy);color:#fff}
+.bar{height:6px;border-radius:99px;background:#DEE3EE;overflow:hidden}
+.bar>i{display:block;height:100%;border-radius:99px;background:var(--navy)}
+.hand{font-family:'Nanum Pen Script',cursive}
+.nav{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:16px;color:var(--muted);font-size:14px;font-weight:500}
+.nav:hover{background:#E8ECF5}
+.nav.on{background:var(--navy);color:#fff}
+.ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.case{flex:1 1 260px;max-width:100%;background:#fff;border-radius:24px;overflow:hidden;border:1px solid #EDF0F6;box-shadow:0 10px 30px -24px rgba(22,38,74,.5)}
+.lab{font-size:12px;font-weight:600;color:var(--muted);margin-bottom:8px}
+</style>
+</helmet>
+<div class="app" style="display:flex;flex-wrap:wrap;gap:24px;padding:24px;align-items:flex-start">
+
+  <aside class="card" style="flex:0 0 232px;display:flex;flex-direction:column;gap:6px;padding:20px 16px;min-height:900px;justify-content:space-between">
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="display:flex;align-items:center;gap:10px;padding:6px 12px 22px">
+        <div style="width:34px;height:34px;border-radius:12px;background:var(--navy);display:flex;align-items:center;justify-content:center">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 10c2 6 14 6 16 0"/><path d="M8 13v2M12 14v2M16 13v2"/></svg>
+        </div>
+        <div style="display:flex;flex-direction:column;line-height:1.1"><span style="font-weight:800;letter-spacing:.16em;font-size:13px">APRO</span><span class="sub" style="font-size:11px">Aesthetic CRM</span></div>
+      </div>
+      <sc-for list="{{nav}}" as="n" hint-placeholder-count="6">
+        <a class="{{n.cls}}" href="{{n.href}}"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="{{n.d}}"/></svg><span>{{n.label}}</span></a>
+      </sc-for>
+    </div>
+    <div class="hand" style="font-size:26px;line-height:1;color:var(--navy2);transform:rotate(-4deg);padding:0 12px 12px">어제보다<br>한 걸음 더</div>
+  </aside>
+
+  <main style="flex:999 1 640px;min-width:0;display:flex;flex-direction:column;gap:24px">
+
+    <header style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-end;padding:8px 4px 0">
+      <div>
+        <div class="hand" style="font-size:28px;color:var(--navy2);transform:rotate(-2deg);display:inline-block">쌓아 온 만큼, 보여 드려요</div>
+        <h1 style="margin:4px 0 0;font-size:44px;font-weight:800;letter-spacing:-.02em;line-height:1.1">경험 원장</h1>
+        <div class="sub" style="margin-top:8px;font-size:14px">상담실 전용 열람 · 환자 동의가 있는 케이스만 표시됩니다.</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+        <span class="chip mist" style="padding:9px 16px;font-size:13px">박OO님 상담 중</span>
+        <span class="chip dark" style="padding:9px 16px;font-size:13px">올세라믹 · 상악 8 · 이갈이</span>
+      </div>
+    </header>
+
+    <!-- Numbers -->
+    <section style="display:flex;flex-wrap:wrap;gap:24px">
+      <div style="flex:1.4 1 420px;position:relative;overflow:hidden;border-radius:28px;background:linear-gradient(160deg,#243B6B 0%,#0E1A33 72%);color:#fff;padding:30px;min-height:230px;display:flex;flex-direction:column;justify-content:space-between">
+        <svg style="position:absolute;left:0;top:0;width:100%;height:100%" viewBox="0 0 520 230" preserveAspectRatio="none" aria-hidden="true"><path d="M0 140 C80 110 150 85 230 115 S370 76 450 96 S505 112 520 104 V230 H0Z" fill="#fff" fill-opacity=".05"/><path d="M0 180 C90 150 170 140 255 164 S405 130 520 158 V230 H0Z" fill="#fff" fill-opacity=".07"/><path d="M0 214 C120 194 220 204 330 196 S470 196 520 200 V230 H0Z" fill="#fff" fill-opacity=".1"/></svg>
+        <div style="position:relative;font-size:14px;opacity:.85">환자 상태와 비슷한 본원 케이스</div>
+        <div style="position:relative;display:flex;align-items:baseline;gap:10px"><span style="font-size:88px;font-weight:800;letter-spacing:-.04em;line-height:1">38</span><span style="font-size:26px;opacity:.7;font-weight:600">건</span></div>
+        <div style="position:relative;font-size:13px;opacity:.8">올세라믹 · 상악 6~10개 · 변색 또는 마모 · 이갈이 동반 기준</div>
+      </div>
+      <div style="flex:1 1 400px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px">
+        <div class="card" style="padding:20px 22px"><div class="sub">담당 원장 케이스</div><div style="font-size:38px;font-weight:800;margin-top:8px;letter-spacing:-.02em">31<span style="font-size:15px;color:var(--muted);font-weight:600"> 건</span></div></div>
+        <div class="card" style="padding:20px 22px"><div class="sub">5년 이상 경과</div><div style="font-size:38px;font-weight:800;margin-top:8px;letter-spacing:-.02em">7<span style="font-size:15px;color:var(--muted);font-weight:600"> 건</span></div></div>
+        <div class="card" style="padding:20px 22px"><div class="sub">재시술 케이스</div><div style="font-size:38px;font-weight:800;margin-top:8px;letter-spacing:-.02em">9<span style="font-size:15px;color:var(--muted);font-weight:600"> 건</span></div></div>
+        <div class="card" style="grid-column:1 / -1;padding:18px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" style="color:var(--navy2)"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div style="flex:1 1 240px;font-size:13px;line-height:1.5;font-weight:500">수치는 케이스 원장에서 자동 집계되며, 산출 근거는 기록으로 남아요. 공개 광고에는 사용하지 않아요.</div>
+        </div>
+      </div>
+    </section>
+
+    <section style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start">
+
+      <div style="flex:2 1 600px;min-width:0">
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin:0 0 16px 4px">
+          <span class="chip dark" style="padding:9px 16px;font-size:13px">전체 유사</span>
+          <span class="chip mist" style="padding:9px 16px;font-size:13px">담당 원장</span>
+          <span class="chip mist" style="padding:9px 16px;font-size:13px">5년+ 경과</span>
+          <span class="chip mist" style="padding:9px 16px;font-size:13px">이갈이 동반</span>
+          <span class="chip mist" style="padding:9px 16px;font-size:13px">재시술</span>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:18px">
+          <sc-for list="{{cases}}" as="c" hint-placeholder-count="6">
+            <div class="case">
+              <div style="display:flex;height:132px">
+                <div style="flex:1;background:linear-gradient(180deg,#E9C9C0,#DDB0A5);position:relative;display:flex;align-items:center;justify-content:center">
+                  <svg viewBox="0 0 120 70" width="104" aria-hidden="true"><g fill="{{c.before}}"><rect x="8" y="22" width="14" height="22" rx="6"/><rect x="24" y="14" width="15" height="28" rx="6"/><rect x="41" y="10" width="17" height="32" rx="7"/><rect x="62" y="10" width="17" height="32" rx="7"/><rect x="81" y="14" width="15" height="28" rx="6"/><rect x="98" y="22" width="14" height="22" rx="6"/></g></svg>
+                  <span style="position:absolute;left:10px;top:10px;font-size:11px;font-weight:700;color:#16264A;background:rgba(255,255,255,.85);padding:3px 8px;border-radius:99px">BEFORE</span>
+                </div>
+                <div style="flex:1;background:linear-gradient(180deg,#E9C9C0,#DDB0A5);position:relative;display:flex;align-items:center;justify-content:center;border-left:2px solid #fff">
+                  <svg viewBox="0 0 120 70" width="104" aria-hidden="true"><g fill="#FBFAF7"><rect x="8" y="20" width="14" height="24" rx="6"/><rect x="24" y="12" width="15" height="30" rx="6"/><rect x="41" y="8" width="17" height="34" rx="7"/><rect x="62" y="8" width="17" height="34" rx="7"/><rect x="81" y="12" width="15" height="30" rx="6"/><rect x="98" y="20" width="14" height="24" rx="6"/></g></svg>
+                  <span style="position:absolute;left:10px;top:10px;font-size:11px;font-weight:700;color:#fff;background:#16264A;padding:3px 8px;border-radius:99px">AFTER</span>
+                </div>
+              </div>
+              <div style="padding:16px 18px 18px">
+                <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px"><span style="font-size:15px;font-weight:700">{{c.t}}</span><span class="sub" style="font-size:12px;white-space:nowrap">{{c.age}}</span></div>
+                <div class="sub" style="font-size:12px;margin-top:3px">{{c.meta}}</div>
+                <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:12px"><span class="chip mist">{{c.tag1}}</span><span class="{{c.tag2Cls}}">{{c.tag2}}</span></div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        <div class="sub" style="font-size:12px;margin:14px 4px 0">사진 영역은 디자인용 자리표시자입니다. 실제 화면에는 표준 촬영 세트(정면·측면·웃을 때)가 표시돼요.</div>
+      </div>
+
+      <div style="flex:1 1 340px;display:flex;flex-direction:column;gap:24px">
+        <div class="card">
+          <h2 class="h2">담당 원장 연도별 케이스</h2><div class="sub" style="margin:4px 0 16px">심미 보철 · 31건</div>
+          <div style="display:flex;align-items:flex-end;gap:12px;height:150px">
+            <sc-for list="{{years}}" as="y" hint-placeholder-count="5">
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end"><span style="font-size:12px;font-weight:700">{{y.n}}</span><div style="width:100%;height:{{y.h}};border-radius:12px;background:{{y.c}}"></div><span class="sub" style="font-size:11px">{{y.t}}</span></div>
+            </sc-for>
+          </div>
+        </div>
+        <div class="card">
+          <h2 class="h2">경과 기간 분포</h2><div class="sub" style="margin:4px 0 16px">유사 케이스 38건 · 장기 경과가 가장 강한 증거</div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <sc-for list="{{aging}}" as="a" hint-placeholder-count="4">
+              <div><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px"><span style="font-weight:600">{{a.t}}</span><span class="sub">{{a.n}}건</span></div><div class="bar"><i style="width:{{a.w}}"></i></div></div>
+            </sc-for>
+          </div>
+        </div>
+        <div class="card" style="background:#fff">
+          <h2 class="h2" style="font-size:18px">삭제량 · 재료 투명 리포트</h2>
+          <div style="margin-top:14px;display:flex;flex-direction:column;gap:10px">
+            <sc-for list="{{report}}" as="r" hint-placeholder-count="4">
+              <div style="display:flex;justify-content:space-between;gap:12px;font-size:13px;padding-bottom:10px;border-bottom:1px solid #EDF0F6"><span class="sub">{{r.k}}</span><span style="font-weight:600;text-align:right">{{r.v}}</span></div>
+            </sc-for>
+          </div>
+          <div class="sub" style="font-size:12px;margin-top:12px">상담 후 환자 전용 페이지로 전달돼요. 수치는 예시입니다.</div>
+        </div>
+      </div>
+    </section>
+
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:0 4px 8px;flex-wrap:wrap;gap:8px"><span class="sub" style="font-size:12px">표시된 수치는 디자인용 샘플 데이터입니다.</span><span class="hand" style="font-size:24px;color:var(--navy2);transform:rotate(-2deg)">Better than yesterday</span></div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1360}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const nav = [
+      { label: '홈', d: 'M3 11l9-8 9 8v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z', cls: 'nav', href: 'Main.dc.html' },
+      { label: '환자 여정', d: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8', cls: 'nav', href: 'Patient.dc.html' },
+      { label: '이탈 분석', d: 'M22 17l-8.5-8.5-5 5L2 7M16 17h6v-6', cls: 'nav', href: 'Churn.dc.html' },
+      { label: '케이스 원장', d: 'M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM8.5 10a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM21 15l-5-5L5 21', cls: 'nav on', href: 'Ledger.dc.html' },
+      { label: '채널 트래킹', d: 'M3 3v18h18M7 16v-5M12 16V7M17 16v-3', cls: 'nav', href: 'Main.dc.html' },
+      { label: '설문 · Smile Plan', d: 'M22 2L11 13M22 2l-7 20-4-9-9-4z', cls: 'nav', href: 'Survey.dc.html' }
+    ];
+    const cases = [
+      { t: '올세라믹 상악 8', age: '경과 5년 2개월', meta: '변색 · 이갈이 · 나이트가드 병행', tag1: '담당 원장', tag2: '이갈이 동반', tag2Cls: 'chip coral', before: '#E3CF9A' },
+      { t: '올세라믹 상악 10', age: '경과 3년 6개월', meta: '마모 · 낮은 교합 높이', tag1: '담당 원장', tag2: '난이도 높음', tag2Cls: 'chip coral', before: '#E6D7B0' },
+      { t: '올세라믹 상악 8', age: '경과 1년 1개월', meta: '변색 · 벌어진 앞니', tag1: '담당 원장', tag2: '자연 톤', tag2Cls: 'chip blue', before: '#E0CB92' },
+      { t: '재시술 · 상악 6', age: '경과 2년 4개월', meta: '기존 라미네이트 교체', tag1: '재시술', tag2: '이갈이 동반', tag2Cls: 'chip coral', before: '#EADFC2' },
+      { t: '올세라믹 상하악 12', age: '경과 5년 8개월', meta: '마모 · 전체 교합 재설계', tag1: '5년+ 경과', tag2: '난이도 높음', tag2Cls: 'chip coral', before: '#DEC88C' },
+      { t: '올세라믹 상악 8', age: '경과 8개월', meta: '변색 · 크기·모양 개선', tag1: '담당 원장', tag2: '화사한 톤', tag2Cls: 'chip blue', before: '#E5D3A4' }
+    ];
+    const years = [
+      { t: '2022', n: 4, h: '50%', c: '#B9C6E2' },
+      { t: '2023', n: 6, h: '72%', c: '#9FB3DB' },
+      { t: '2024', n: 7, h: '86%', c: '#6F89C6' },
+      { t: '2025', n: 8, h: '100%', c: '#16264A' },
+      { t: '2026', n: 6, h: '72%', c: '#2A4378' }
+    ];
+    const aging = [
+      { t: '1년 미만', n: 14, w: '37%' },
+      { t: '1 ~ 3년', n: 11, w: '29%' },
+      { t: '3 ~ 5년', n: 6, w: '16%' },
+      { t: '5년 이상', n: 7, w: '18%' }
+    ];
+    const report = [
+      { k: '치아 삭제량', v: '앞니 평균 0.5mm 내외' },
+      { k: '재료', v: '지르코니아 계열 올세라믹' },
+      { k: '임시치아 기간', v: '약 2주' },
+      { k: '이갈이 대응', v: '나이트가드 제작 포함' }
+    ];
+    return { nav, cases, years, aging, report };
+  }
+}
+</script>
+</body>
+</html>
