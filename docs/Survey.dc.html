@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>사전 상담 설문</title>
+<script src="./dc-lite.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.sv{--ink:#0E1A33;--navy:#16264A;--navy2:#2A4378;--mist:#DCE3F0;--line:#E2E6EF;--card:#F8F9FC;--bg:#E9ECF2;--muted:#5C6683;--coral:#B8452F;--coraltint:#F7E4DE;width:390px;min-height:1560px;background:var(--bg);color:var(--ink);font-family:'Plus Jakarta Sans','Noto Sans KR',sans-serif;box-sizing:border-box;padding:20px 20px 28px;display:flex;flex-direction:column;gap:20px}
+.sv *{box-sizing:border-box}
+.sv .card{background:var(--card);border-radius:26px;padding:20px}
+.sv .q{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.sv .qn{flex:none;width:28px;height:28px;border-radius:10px;background:var(--navy);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.sv .qt{font-size:16px;font-weight:600;letter-spacing:-.01em;line-height:1.35}
+.sv .sub{font-size:12px;color:var(--muted)}
+.sv .opt{display:inline-flex;align-items:center;gap:6px;padding:10px 14px;border-radius:999px;background:#fff;border:1.5px solid #E2E6EF;font-size:13px;font-weight:500;color:var(--ink);min-height:44px}
+.sv .opt.on{background:var(--navy);border-color:var(--navy);color:#fff;font-weight:600}
+.sv .opt.star{background:var(--coraltint);border-color:#E3A596;color:var(--coral);font-weight:700}
+.sv .hand{font-family:'Nanum Pen Script',cursive}
+.sv .ico{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.sv .sw{flex:1;background:#fff;border-radius:18px;border:2px solid transparent;padding:12px 4px 10px;text-align:center;font-size:11px;font-weight:500;color:var(--muted)}
+.sv .sw.on{border-color:var(--navy);color:var(--ink);font-weight:700}
+.sv .cb{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:13px;line-height:1.45}
+.sv .cb:last-child{border-bottom:0}
+.sv .box{flex:none;width:22px;height:22px;border-radius:7px;border:2px solid #B6BFD3;background:#fff;display:flex;align-items:center;justify-content:center;color:#fff;margin-top:1px}
+.sv .box.on{background:var(--navy);border-color:var(--navy)}
+</style>
+</helmet>
+<div class="sv">
+
+  <div style="display:flex;align-items:center;justify-content:space-between">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="width:34px;height:34px;border-radius:12px;background:var(--navy);display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 10c2 6 14 6 16 0"/><path d="M8 13v2M12 14v2M16 13v2"/></svg></div>
+      <span style="font-weight:800;letter-spacing:.16em;font-size:13px">APRO</span>
+    </div>
+    <span style="font-size:12px;font-weight:600;background:var(--mist);color:#2A3A63;padding:7px 12px;border-radius:999px">3 / 8 · 약 2분</span>
+  </div>
+
+  <div>
+    <div class="hand" style="font-size:26px;color:var(--navy2);transform:rotate(-2deg);display:inline-block">편하게 골라 주세요</div>
+    <div style="font-size:18px;color:var(--muted);margin-top:2px">안녕하세요,</div>
+    <h1 style="margin:0;font-size:34px;font-weight:800;letter-spacing:-.02em;line-height:1.15">어떤 미소를<br>꿈꾸세요?</h1>
+  </div>
+
+  <div style="position:relative;overflow:hidden;border-radius:26px;background:linear-gradient(160deg,#243B6B 0%,#0E1A33 75%);color:#fff;padding:22px;min-height:132px">
+    <svg style="position:absolute;left:0;top:0;width:100%;height:100%" viewBox="0 0 350 132" preserveAspectRatio="none" aria-hidden="true"><path d="M0 84 C60 62 110 52 170 72 S270 50 350 66 V132 H0Z" fill="#fff" fill-opacity=".06"/><path d="M0 112 C80 96 150 104 220 98 S310 100 350 102 V132 H0Z" fill="#fff" fill-opacity=".1"/></svg>
+    <div style="position:relative">
+      <div style="font-size:13px;opacity:.8">내 취향 카드 만들기</div>
+      <div style="display:flex;align-items:baseline;gap:6px;margin-top:4px"><span style="font-size:38px;font-weight:800;letter-spacing:-.03em">3</span><span style="font-size:20px;opacity:.7;font-weight:600">/ 8 단계</span></div>
+      <div style="height:6px;border-radius:99px;background:rgba(255,255,255,.22);margin-top:12px"><div style="width:38%;height:100%;border-radius:99px;background:#fff"></div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="q"><span class="qn">01</span><span class="qt">가장 개선하고 싶은 부분은 무엇인가요?</span></div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px">
+      <span class="opt star">★ 치아 변색·누런 치아</span><span class="opt on">벌어진 앞니</span><span class="opt on">치아 크기·모양</span><span class="opt">덧니·배열</span><span class="opt">치아 파절·마모</span><span class="opt">왜소치</span><span class="opt">잇몸 노출</span><span class="opt">기존 보철 재작업</span>
+    </div>
+    <div class="sub" style="margin-top:12px">★ 가장 신경 쓰이는 한 가지를 눌러 표시해 주세요.</div>
+  </div>
+
+  <div class="card">
+    <div class="q"><span class="qn">03</span><span class="qt">원하는 치아 색상</span></div>
+    <div style="display:flex;gap:8px">
+      <div class="sw"><div style="width:30px;height:38px;border-radius:14px 14px 12px 12px;background:#F3E6C9;margin:0 auto 8px"></div>자연</div>
+      <div class="sw on"><div style="width:30px;height:38px;border-radius:14px 14px 12px 12px;background:#F6EEDC;margin:0 auto 8px"></div>한 톤 밝게</div>
+      <div class="sw"><div style="width:30px;height:38px;border-radius:14px 14px 12px 12px;background:#F4F5F7;margin:0 auto 8px"></div>화사한</div>
+      <div class="sw"><div style="width:30px;height:38px;border-radius:14px 14px 12px 12px;background:#fff;border:1px solid #E2E6EF;margin:0 auto 8px"></div>매우 밝은</div>
+    </div>
+    <div class="sub" style="margin:12px 0 0">모르겠다면 &quot;상담 후 결정&quot;도 괜찮아요. 의료진 추천을 고르면 자연스러움 vs 화사함 중 가까운 쪽을 한 번 더 물어봐요.</div>
+  </div>
+
+  <div class="card">
+    <div class="q"><span class="qn">03</span><span class="qt">원하는 치아 모양</span></div>
+    <div style="display:flex;gap:8px">
+      <div class="sw"><svg viewBox="0 0 80 40" width="64" aria-hidden="true"><g fill="#E9EDF5" stroke="#B6BFD3"><rect x="4" y="6" width="16" height="26" rx="2"/><rect x="22" y="4" width="16" height="28" rx="2"/><rect x="40" y="4" width="16" height="28" rx="2"/><rect x="58" y="6" width="16" height="26" rx="2"/></g></svg><div style="margin-top:6px">각지고 반듯한</div></div>
+      <div class="sw on"><svg viewBox="0 0 80 40" width="64" aria-hidden="true"><g fill="#E9EDF5" stroke="#16264A"><rect x="4" y="8" width="16" height="24" rx="7"/><rect x="22" y="5" width="16" height="27" rx="7"/><rect x="40" y="5" width="16" height="27" rx="7"/><rect x="58" y="8" width="16" height="24" rx="7"/></g></svg><div style="margin-top:6px">자연스러운 곡선</div></div>
+      <div class="sw"><svg viewBox="0 0 80 40" width="64" aria-hidden="true"><g fill="#E9EDF5" stroke="#B6BFD3"><rect x="4" y="10" width="16" height="22" rx="8"/><rect x="22" y="8" width="16" height="24" rx="8"/><rect x="40" y="8" width="16" height="24" rx="8"/><rect x="58" y="10" width="16" height="22" rx="8"/></g></svg><div style="margin-top:6px">동글고 부드러운</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="q"><span class="qn">03</span><span class="qt">변화의 정도는 어느 쪽에 가까워요?</span></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:0 4px">
+      <span style="width:30px;height:30px;border-radius:50%;background:var(--navy)"></span><span style="flex:1;height:4px;background:var(--navy)"></span>
+      <span style="width:30px;height:30px;border-radius:50%;background:var(--navy);border:3px solid #fff;box-shadow:0 0 0 2px var(--navy)"></span><span style="flex:1;height:4px;background:#C9D0E0"></span>
+      <span style="width:30px;height:30px;border-radius:50%;background:#C9D0E0"></span><span style="flex:1;height:4px;background:#C9D0E0"></span>
+      <span style="width:30px;height:30px;border-radius:50%;background:#C9D0E0"></span><span style="flex:1;height:4px;background:#C9D0E0"></span>
+      <span style="width:30px;height:30px;border-radius:50%;background:#C9D0E0"></span>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:10px"><span>자연스럽게</span><span>확실한 변화</span></div>
+  </div>
+
+  <div class="card">
+    <div class="q"><span class="qn">04</span><span class="qt">이런 느낌은 피하고 싶어요</span></div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px"><span class="opt on">인위적으로 하얀</span><span class="opt on">너무 큰 치아</span><span class="opt on">일자 배열</span><span class="opt">너무 뾰족한 모양</span><span class="opt">잇몸이 많이 보이는</span></div>
+  </div>
+
+  <div class="card">
+    <div class="q"><span class="qn">05</span><span class="qt">병원을 고를 때 가장 중요한 기준 (2개까지)</span></div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px"><span class="opt on">경험·케이스 수</span><span class="opt on">사후관리</span><span class="opt">원장님</span><span class="opt">디자인 감각</span><span class="opt">비용</span><span class="opt">일정</span></div>
+    <div class="sub" style="margin:14px 0 8px">다른 병원 상담을 받아 보셨나요?</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="opt">아직 없어요</span><span class="opt on">1~3곳</span><span class="opt">4곳 이상</span></div>
+  </div>
+
+  <div class="card">
+    <div class="q"><span class="qn">06</span><span class="qt">연락은 이렇게 받을게요</span></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="opt on">카카오톡</span><span class="opt">문자</span><span class="opt">전화</span></div>
+    <div class="cb" style="margin-top:8px"><span class="box on"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;stroke-width:3"><path d="M5 12l5 5L20 7"/></svg></span><span>알림에 시술명을 표시하지 않아요 (&quot;APRO 상담 안내&quot;로 표시)</span></div>
+  </div>
+
+  <div class="card">
+    <div class="q"><span class="qn">07</span><span class="qt">동의</span></div>
+    <div class="cb"><span class="box on"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;stroke-width:3"><path d="M5 12l5 5L20 7"/></svg></span><span><b>(필수)</b> 상담을 위한 개인정보·건강정보 수집 및 이용</span></div>
+    <div class="cb"><span class="box"></span><span>(선택) 상담용 사진 촬영 및 디자인 시뮬레이션</span></div>
+    <div class="cb"><span class="box"></span><span>(선택) 내 케이스를 다른 환자 상담에 활용 (언제든 철회 가능)</span></div>
+    <div class="cb"><span class="box"></span><span>(선택) 상담 안내 및 소식 수신</span></div>
+  </div>
+
+  <button style="height:56px;border-radius:999px;border:0;background:var(--navy);color:#fff;font:700 16px 'Plus Jakarta Sans','Noto Sans KR',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer">내 취향 카드 완성하기<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
+  <div class="hand" style="text-align:center;font-size:24px;color:var(--navy2)">Small steps, big results</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1560}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
